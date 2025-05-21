@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Innovative Repairs Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Innovative Repairs.png" alt="Innovative Repairs Logo" />
+                </a>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" data-navid="home">Home</a></li>
+                    <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+                    <li><a href="services.html" data-navid="services">Services</a></li>
+                    <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
+                    <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+                </ul>
+            </div>
+            <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section" data-aos="fade-up">
+            <h1>Our Work Gallery</h1>
+            <p
+                style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; color: var(--text-secondary);">
+                A glimpse into the quality and variety of projects we've proudly completed. Click to enlarge.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="100"><a href="images/builders.jpg"
+                        data-lightbox="work-gallery" data-title="Residential Siding Project"><img
+                            src="images/builders.jpg" alt="Residential Siding Project"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="150"><a href="images/cement.jpg"
+                        data-lightbox="work-gallery" data-title="Concrete Foundation Work"><img src="images/cement.jpg"
+                            alt="Concrete Foundation Work"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="200"><a href="images/grinder.jpg"
+                        data-lightbox="work-gallery" data-title="Surface Grinding and Preparation"><img
+                            src="images/grinder.jpg" alt="Surface Grinding and Preparation"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="250"><a href="images/drill.jpg"
+                        data-lightbox="work-gallery" data-title="Precision Drilling"><img src="images/drill.jpg"
+                            alt="Precision Drilling"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="300"><a href="images/blueprints.jpg"
+                        data-lightbox="work-gallery" data-title="Project Planning with Blueprints"><img
+                            src="images/blueprints.jpg" alt="Project Planning"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="350"><a href="images/builders.jpg"
+                        data-lightbox="work-gallery" data-title="Team working on exterior"><img
+                            src="images/builders.jpg" alt="Team working on exterior"></a></div>
+            </div>
+        </section>
+
+        <section class="gallery-section" data-aos="fade-up">
+            <h1>Tools & Techniques</h1>
+            <p
+                style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; color: var(--text-secondary);">
+                We use state-of-the-art tools and proven techniques to ensure every job is done right.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="100"><a href="images/grinder.jpg"
+                        data-lightbox="tools-gallery" data-title="High-Power Grinder"><img src="images/grinder.jpg"
+                            alt="High-Power Grinder"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="150"><a href="images/drill.jpg"
+                        data-lightbox="tools-gallery" data-title="Versatile Drilling Tool"><img src="images/drill.jpg"
+                            alt="Versatile Drilling Tool"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="200"><a href="images/cement.jpg"
+                        data-lightbox="tools-gallery" data-title="Cement Finishing Tools"><img src="images/cement.jpg"
+                            alt="Cement Finishing Tools"></a></div>
+            </div>
+        </section>
+
+        <section class="gallery-section" data-aos="fade-up">
+            <h1>Behind the Scenes</h1>
+            <p
+                style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; color: var(--text-secondary);">
+                A look at our team's dedication and the meticulous process behind our successful projects.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="100"><a href="images/blueprints.jpg"
+                        data-lightbox="bts-gallery" data-title="Detailed Project Planning"><img
+                            src="images/blueprints.jpg" alt="Detailed Project Planning"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="150"><a href="images/builders.jpg"
+                        data-lightbox="bts-gallery" data-title="Team Collaboration on Site"><img
+                            src="images/builders.jpg" alt="Team Collaboration on Site"></a></div>
+                <div class="gallery-item" data-aos="zoom-in-up" data-aos-delay="200"><a href="images/cement.jpg"
+                        data-lightbox="bts-gallery" data-title="Laying the Groundwork"><img src="images/cement.jpg"
+                            alt="Laying the Groundwork"></a></div>
+            </div>
+        </section>
+
+        <section class="section cta-gallery" data-aos="fade-up">
+            <h2>Inspired by Our Work?</h2>
+            <p>Let's discuss how we can bring this level of quality and dedication to your next project.</p>
+            <a href="get-a-quote.html" class="fancy-button" data-aos="zoom-in" data-aos-delay="100">
+                <span class="button-label">Get Your Free Quote</span>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Innovative Repairs. All rights reserved. Pico Rivera, California.</p>
+            <div>
+                <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

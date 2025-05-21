@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - Innovative Repairs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Innovative Repairs.png" alt="Innovative Repairs Logo" />
+                </a>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" data-navid="home">Home</a></li>
+                    <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+                    <li><a href="services.html" data-navid="services">Services</a></li>
+                    <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
+                    <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+                </ul>
+            </div>
+            <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" data-aos="fade-up">
+            <div class="hero-video-wrapper">
+                <video playsinline autoplay muted loop poster="images/blueprints.jpg" id="serviceHeroVideo">
+                    <source src="images/precision-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hero-content">
+                <h1>Exceptional Craftsmanship, Trusted Results</h1>
+                <p>Explore the wide range of construction and repair services we offer with pride and precision.</p>
+            </div>
+        </section>
+
+        <section id="services-detailed" class="section two-column" data-aos="fade-right">
+            <div class="two-column-content">
+                <div class="carousel-wrapper">
+                    <div class="carousel">
+                        <button class="carousel-btn prev" aria-label="Previous Slide">‹</button>
+                        <div class="carousel-track">
+                            <img src="images/builders.jpg" alt="Residential Renovation in Progress" />
+                            <img src="images/blueprints.jpg" alt="Commercial Project Planning" />
+                            <img src="images/cement.jpg" alt="Custom Concrete Work" />
+                            <img src="images/drill.jpg" alt="Precision Drilling for Custom Installation" />
+                            <img src="images/grinder.jpg" alt="Surface Preparation and Finishing" />
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next Slide">›</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card" data-aos="zoom-in-up" data-aos-delay="100"> 
+                        <i class="fas fa-home-lg-alt"></i>
+                        <h3>Residential Renovations</h3>
+                        <p>From small repairs to full-scale remodels, we treat your home as if it were our own.</p>
+                    </div>
+                    <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <i class="fas fa-building"></i>
+                        <h3>Commercial Construction</h3>
+                        <p>We build with your business goals in mind—on time, within budget, and with enduring quality.
+                        </p>
+                    </div>
+                    <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h3>Custom Projects</h3>
+                        <p>Have a unique vision? Our team brings your ideas to life with precision and care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section two-column" data-aos="zoom-in-up">
+            <div class="two-column-content">
+                <div class="text">
+                    <h2>Why Work With Us</h2>
+                    <p>We value transparency, hard work, and delivering beyond expectations. Our team collaborates with
+                        you
+                        through each step to ensure your complete satisfaction.</p>
+                    <a href="get-a-quote.html" class="fancy-button" style="margin-top: 1rem;" data-aos="fade-up"
+                        data-aos-delay="100"> 
+                        <span class="button-label">Discuss Your Project</span>
+                    </a>
+                </div>
+                <div class="image">
+                    <img src="images/builders.jpg" alt="Construction Team Collaboration" /> 
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-aos="fade-up">
+            <h2>Featured Projects</h2>
+            <div class="cards">
+                <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
+                    <img src="images/grinder.jpg" alt="Modern Kitchen Remodel Project">
+                    <h3>Modern Kitchen Remodel</h3>
+                    <p>Stylish and functional kitchen with premium finishes and fixtures.</p>
+                </div>
+                <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="images/blueprints.jpg" alt="Commercial Office Build-Out Project"> 
+                    <h3>Office Build-Out</h3>
+                    <p>Customized commercial office space with top-tier craftsmanship.</p>
+                </div>
+                <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img src="images/cement.jpg" alt="Outdoor Patio Upgrade Project"> 
+                    <h3>Outdoor Patio Upgrade</h3>
+                    <p>Elegant outdoor entertainment space with durable materials.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Innovative Repairs. All rights reserved. Pico Rivera, California.</p>
+            <div>
+                <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
