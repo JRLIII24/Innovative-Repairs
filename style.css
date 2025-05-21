@@ -6,10 +6,8 @@
   --secondary-bg: #1E1E1E;
   --card-bg: #2A2A2A;
   --text-primary: #F0F0F0;
-  /* Main text on dark backgrounds */
   --text-secondary: #A0A0A0;
   --accent-primary: #00AEEF;
-  /* Kept for links and other accents */
   --accent-secondary: #0077B5;
   --border-color: #444;
 
@@ -20,18 +18,14 @@
   --shadow-medium: rgba(0, 0, 0, 0.3);
   --shadow-accent: rgba(0, 174, 239, 0.15);
 
-  /* --- White Fancy Button (High Contrast AAA Target) --- */
   --fancy-button-bg: #FFFFFF;
   --fancy-button-text: #1D1D1D;
-  /* Very dark gray for text on white button */
   --fancy-button-hover-bg: #EAEAEA;
   --fancy-button-hover-text: var(--accent-secondary);
-  /* Blue text on hover */
   --fancy-button-icon-color: var(--fancy-button-text);
   --fancy-button-icon-hover-color: var(--fancy-button-hover-text);
   --fancy-button-shadow: rgba(0, 0, 0, 0.1);
   --fancy-button-hover-shadow: rgba(0, 0, 0, 0.15);
-
 }
 
 body {
@@ -105,16 +99,14 @@ a:hover {
 }
 
 .logo {
-  /* Ensure logo doesn't cause issues with nav-wrapper taking space */
   flex-shrink: 0;
-  /* Prevent logo from shrinking if space is tight */
 }
 
 .logo img {
-  max-height: 150px;
+  max-height: 80px;
+  /* Adjusted */
   transition: transform 0.3s ease;
   display: block;
-  /* Prevents potential extra space below image */
 }
 
 .logo img:hover {
@@ -126,14 +118,12 @@ a:hover {
   display: flex;
   align-items: center;
   margin-left: auto;
-  /* Pushes this group to the right of the logo */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  /* Slightly reduced gap for tighter fit with hammer */
   padding: 0;
   margin: 0;
   align-items: center;
@@ -145,10 +135,8 @@ a:hover {
   font-weight: 600;
   font-family: var(--font-heading);
   font-size: 0.9rem;
-  /* Slightly smaller for tighter navbar */
   padding: 0.5rem 0.25rem;
   white-space: nowrap;
-  /* Prevent links from wrapping */
 }
 
 .nav-links a::after {
@@ -157,7 +145,6 @@ a:hover {
   width: 0%;
   height: 3px;
   bottom: -2px;
-  /* Closer to the text */
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--accent-primary);
@@ -174,7 +161,6 @@ a:hover {
   color: var(--accent-primary);
 }
 
-
 #mobile-menu {
   display: none;
   background: none;
@@ -182,15 +168,122 @@ a:hover {
   color: var(--text-primary);
   font-size: 1.8rem;
   cursor: pointer;
-  /* order: 3; // Let normal flow dictate or use margin-left on nav-wrapper */
   margin-left: 1.5rem;
-  /* Space after nav links if nav-wrapper doesn't push it */
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (index.html - Logo Hero)
+   ========================================================================== */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-bg);
+}
+
+.hero-logo {
+  max-width: 280px;
+  /* Default for desktop */
+  width: 60%;
+  height: auto;
+  margin-bottom: 2rem;
+  opacity: 0;
+  /* Initial state for JS animation */
+  transform: translateY(-40px) scale(0.95);
+  /* Initial state */
+  filter: drop-shadow(0 0 10px rgba(var(--accent-primary-rgb, 0, 174, 239), 0.3));
+  /* Soft glow effect */
+}
+
+.hero-logo.slide-in-hero-logo {
+  /* Added by JS */
+  animation: slideInHeroLogoAnimation 1s ease-out forwards;
+}
+
+@keyframes slideInHeroLogoAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Staggered animations for text and button triggered by .animate-hero on .hero-container */
+.hero-container h1,
+.hero-container p,
+.hero-container .fancy-button {
+  opacity: 0;
+  /* Initially hidden */
+}
+
+.hero-container.animate-hero h1 {
+  animation: fadeInUpHeroText 0.8s ease-out 0.3s forwards;
+  /* Delay slightly after logo */
+}
+
+.hero-container.animate-hero p {
+  animation: fadeInUpHeroText 0.8s ease-out 0.6s forwards;
+  /* Delay slightly after h1 */
+}
+
+.hero-container.animate-hero .fancy-button {
+  animation: fadeInUpButtonHero 0.8s ease-out 0.9s forwards;
+  /* Delay slightly after p */
+}
+
+@keyframes fadeInUpHeroText {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpButtonHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-container h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+.hero-container p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: #D0D0D0;
+  max-width: 700px;
+}
+
+/* ==========================================================================
+   Hero Section (services.html - Video Hero)
    ========================================================================== */
 .hero {
+  /* Original styles for video hero on other pages like services.html */
   position: relative;
   color: var(--text-primary);
   text-align: center;
@@ -228,109 +321,27 @@ a:hover {
   z-index: 1;
 }
 
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 70vh;
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-  background-color: var(--primary-bg);
-}
-
-.hero-logo {
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(-40px) scale(0.95);
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
-}
-
-.hero-logo.slide-in-hero-logo {
-  animation: slideInHeroLogoAnimation 1s ease-out forwards;
-}
-
-@keyframes slideInHeroLogoAnimation {
-  from {
-    opacity: 0;
-    transform: translateY(-40px) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.hero-container h1,
-.hero-container p,
-.hero-container .fancy-button {
-  opacity: 0;
-}
-
-.hero-container.animate-hero h1 {
-  animation: fadeInUpHeroText 1s ease-out 0.8s forwards;
-}
-
-.hero-container.animate-hero p {
-  animation: fadeInUpHeroText 1s ease-out 1.1s forwards;
-}
-
-.hero-container.animate-hero .fancy-button {
-  animation: fadeInUpButtonHero 1s ease-out 1.4s forwards;
-}
-
-@keyframes fadeInUpHeroText {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUpButtonHero {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 .hero-content {
+  /* For video hero content */
   position: relative;
   z-index: 2;
   max-width: 800px;
 }
 
-.hero h1 {
+.hero-content h1 {
   font-size: 3.5rem;
   font-weight: 700;
   text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
-  animation: fadeInDown 1s ease-out 0.5s backwards;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.3rem;
   margin-bottom: 2.5rem;
   color: #D0D0D0;
-  animation: fadeInUp 1s ease-out 1s backwards;
 }
 
 /* ==========================================================================
-   Buttons (Fancy CTA Button - White High Contrast Version)
+   Buttons (Fancy CTA Button)
    ========================================================================== */
 .fancy-button {
   position: relative;
@@ -352,8 +363,6 @@ a:hover {
   text-decoration: none;
   box-shadow: 0 4px 10px var(--fancy-button-shadow);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  animation: fadeInUpButton 1s ease-out 1.5s backwards;
-  /* Initial entry animation */
 }
 
 .fancy-button .button-label {
@@ -414,13 +423,14 @@ a:hover {
   background-color: var(--secondary-bg);
 }
 
-.section h2 {
+.section:not(.hero-container) h2 {
+  /* Avoid styling hero h1 as a section h2 */
   margin-bottom: 3rem;
   position: relative;
   display: inline-block;
 }
 
-.section h2::after {
+.section:not(.hero-container) h2::after {
   content: '';
   position: absolute;
   width: 60%;
@@ -481,8 +491,6 @@ a:hover {
 /* ==========================================================================
    Specific Sections (Testimonials, Contact, About, Services, Gallery)
    ========================================================================== */
-
-/* Testimonials */
 .testimonials {
   background-color: var(--primary-bg);
 }
@@ -515,7 +523,6 @@ a:hover {
   text-align: right;
 }
 
-/* Contact Section (index.html) & Get a Quote Page (#quote) */
 .contact h2,
 #quote h2 {
   margin-bottom: 1rem;
@@ -536,7 +543,6 @@ a:hover {
   box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
-/* About Us Page */
 .about-intro p {
   max-width: 800px;
   margin: 0 auto 2rem auto;
@@ -567,27 +573,6 @@ a:hover {
   box-shadow: 0 8px 18px var(--shadow-accent);
 }
 
-.about-video .video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 800px;
-  margin: 2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px var(--shadow-medium);
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Services Page */
 .two-column {
   padding: 5rem 2rem;
 }
@@ -679,10 +664,13 @@ a:hover {
   right: 15px;
 }
 
-/* Gallery Page */
 .gallery-section {
   padding: 5rem 2rem;
   background-color: var(--primary-bg);
+}
+
+.gallery-section:nth-of-type(even) {
+  background-color: var(--secondary-bg);
 }
 
 .gallery-grid {
@@ -751,45 +739,12 @@ footer p {
   transform: scale(1.2) translateY(-2px);
 }
 
-
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUpButton {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
+/* ==========================================================================
+   Animations
+   ========================================================================== */
 @keyframes slideDownNav {
+
+  /* For mobile menu */
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -801,6 +756,8 @@ footer p {
   }
 }
 
+/* Other keyframes (fadeInUpHeroText, etc.) are defined near their usage */
+
 /* ==========================================================================
    Responsive Media Queries
    ========================================================================== */
@@ -810,14 +767,13 @@ footer p {
   }
 
   .logo img {
-    max-height: 60px;
+    max-height: 50px;
   }
 
   .nav-wrapper {
     margin-left: 1rem;
   }
 
-  /* Give some space if logo is larger */
   .nav-links {
     gap: 1rem;
   }
@@ -826,18 +782,34 @@ footer p {
     font-size: 0.85rem;
   }
 
-
   #mobile-menu {
     margin-left: 1rem;
   }
 
-  .hero h1 {
+  /* Responsive Hero (index.html - Logo Hero) */
+  .hero-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-container p {
+    font-size: 1.1rem;
+  }
+
+  .hero-logo {
+    max-width: 220px;
+  }
+
+  /* Responsive Hero (services.html - Video Hero) */
+  .hero-content h1 {
     font-size: 2.8rem;
   }
 
-  .hero p {
+  /* If .hero class is used */
+  .hero-content p {
     font-size: 1.1rem;
   }
+
+  /* If .hero class is used */
 
   .fancy-button {
     padding: 0.8rem 1.8rem;
@@ -848,37 +820,32 @@ footer p {
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 1.5rem;
-    /* Revert to slightly more padding for mobile toggle */
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
   .nav-wrapper {
     order: 3;
-    /* Move nav links below logo and hamburger */
     width: 100%;
     margin-left: 0;
     justify-content: center;
-    /* Center the nav links when stacked */
     position: static;
-    /* Remove relative for simpler flow or manage differently if hammer stays */
   }
 
   .nav-links {
     display: none;
-    /* Hidden for mobile toggle */
     flex-direction: column;
     width: 100%;
     background-color: var(--secondary-bg);
     position: absolute;
-    /* Dropdown from navbar */
     top: 100%;
-    /* Position below navbar (based on navbar's bottom edge) */
     left: 0;
     padding: 1rem 0;
     box-shadow: 0 5px 10px var(--shadow-medium);
     border-top: 1px solid var(--border-color);
     align-items: center;
+    z-index: 999;
+    /* Ensure dropdown is on top */
   }
 
   .nav-links.active {
@@ -914,27 +881,48 @@ footer p {
     margin-left: 0;
   }
 
+  /* Responsive Hero (index.html - Logo Hero) */
+  .hero-container {
+    padding: 3rem 1.5rem;
+    min-height: 60vh;
+  }
 
-  /* Hide hammer on mobile for simplicity */
+  .hero-container h1 {
+    font-size: 2rem;
+  }
 
+  .hero-container p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive Hero (services.html - Video Hero) */
   .hero {
     padding: 6rem 1.5rem;
     min-height: 60vh;
   }
 
-  .hero h1 {
+  /* If .hero class is used */
+  .hero-content h1 {
     font-size: 2.2rem;
   }
 
-  .hero p {
+  /* If .hero class is used */
+  .hero-content p {
     font-size: 1rem;
   }
+
+  /* If .hero class is used */
 
   .section {
     padding: 4rem 1.5rem;
   }
 
-  .section h2 {
+  .section:not(.hero-container) h2 {
     font-size: 1.8rem;
   }
 
@@ -988,31 +976,64 @@ footer p {
     max-height: 45px;
   }
 
+  /* Responsive Hero (index.html - Logo Hero) */
+  .hero-container {
+    padding: 2.5rem 1rem;
+    min-height: 55vh;
+  }
+
+  .hero-container h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-container p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-logo {
+    max-width: 160px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Responsive Hero (services.html - Video Hero) */
   .hero {
     padding: 4rem 1rem;
     min-height: 50vh;
   }
 
-  .hero h1 {
+  /* If .hero class is used */
+  .hero-content h1 {
     font-size: 1.8rem;
   }
 
-  .hero p {
+  /* If .hero class is used */
+  .hero-content p {
     font-size: 0.9rem;
     margin-bottom: 2rem;
   }
 
+  /* If .hero class is used */
+
   .fancy-button {
     width: 90%;
+    max-width: 300px;
     padding: 0.9rem;
     font-size: 0.9rem;
   }
+
+  .hero-container .fancy-button {
+    width: auto;
+    padding: 0.9rem 1.8rem;
+  }
+
+  /* Keep hero button more contained */
 
   .section {
     padding: 3rem 1rem;
   }
 
-  .section h2 {
+  .section:not(.hero-container) h2 {
     font-size: 1.6rem;
   }
 
