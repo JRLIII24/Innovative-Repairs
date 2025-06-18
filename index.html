@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
 
@@ -41,7 +42,6 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero-container">
       <img src="assets/Innovative Repairs.png" alt="Innovative Repairs - Crafting Quality Spaces" class="hero-logo">
       <h1>Crafting Spaces That Stand the Test of Time</h1>
@@ -51,52 +51,57 @@
       </a>
     </section>
 
-    <!-- Core Services Section -->
     <section class="section services-overview" data-aos="fade-up">
       <h2>Our Core Services</h2>
       <div class="cards">
         <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-          <img src="assets/builders.jpg" alt="Residential Renovation" />
+          <i class="fas fa-hammer"></i>
           <h3>Residential Renovations</h3>
           <p>Precision repairs, remodels, and home maintenance that stand the test of time, enhancing your living space.
           </p>
         </div>
         <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-          <img src="assets/blueprints.jpg" alt="Commercial Construction Planning" />
+          <i class="fas fa-industry"></i>
           <h3>Commercial Construction</h3>
           <p>From blueprint to build, we deliver top-notch commercial results, focusing on functionality and design.</p>
         </div>
         <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-          <img src="assets/cement.jpg" alt="Custom Project with Cement Work" />
+          <i class="fas fa-lightbulb"></i>
           <h3>Custom Projects</h3>
           <p>Unique builds and specialized repairs tailored to your specific vision and functional requirements.</p>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="section why-choose-us" data-aos="fade-left">
-      <h2>Why Choose Innovative Repairs?</h2>
-      <div class="cards">
-        <div class="card" data-aos="flip-left" data-aos-delay="100">
-          <i class="fas fa-hard-hat"></i>
-          <h3>Skilled Experts</h3>
-          <p>Our experienced professionals ensure quality workmanship and attention to detail every step of the way.</p>
+    <section class="section gallery-overview" data-aos="fade-up">
+      <h2>Our Diverse Portfolio</h2>
+      <div class="cards gallery-cards">
+        <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
+          <a href="assets/fireplace.jpeg" data-lightbox="home-gallery" data-title="Fireplace Renovation">
+            <img src="assets/fireplace.jpeg" alt="Fireplace Renovation" />
+          </a>
         </div>
-        <div class="card" data-aos="flip-left" data-aos-delay="200">
-          <i class="fas fa-clock"></i>
-          <h3>On-Time Delivery</h3>
-          <p>We respect your time and meet deadlines without compromising on the quality of our work.</p>
+        <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
+          <a href="assets/Glass-Bathroom.jpeg" data-lightbox="home-gallery" data-title="Glass Bathroom">
+            <img src="assets/Glass-Bathroom.jpeg" alt="Custom Glass Work" />
+          </a>
         </div>
-        <div class="card" data-aos="flip-left" data-aos-delay="300">
-          <i class="fas fa-thumbs-up"></i>
-          <h3>Customer-First Approach</h3>
-          <p>Your satisfaction is our mission. We prioritize clear communication and exceptional service.</p>
+        <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
+          <a href="assets/Marble-Bathroom.jpeg" data-lightbox="home-gallery" data-title="Marble Bathroom">
+            <img src="assets/Marble-Bathroom.jpeg" alt="Modern Bathroom Remodel" />
+          </a>
+        </div>
+        <div class="card" data-aos="zoom-in-up" data-aos-delay="400">
+          <a href="assets/Kitchen2.jpeg" data-lightbox="home-gallery" data-title="Kitchen Remodel">
+            <img src="assets/Kitchen2.jpeg" alt="Kitchen Remodel" />
+          </a>
         </div>
       </div>
+      <a href="gallery.html" class="fancy-button view-gallery-button" data-aos="fade-up" data-aos-delay="500">
+        <span class="button-label">Explore more of our gallery</span>
+      </a>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="section testimonials" data-aos="fade-up">
       <h2>What Our Clients Say</h2>
       <div class="cards">
@@ -118,7 +123,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section contact" data-aos="zoom-in-up">
       <h2>Let's Build Something Together</h2>
       <p>Ready to start your next project? Fill out our quick form or call us directly to discuss your needs.</p>
@@ -136,23 +140,21 @@
             class="fab fa-instagram"></i></a>
       </div>
     </div>
+    <script>
+      // Automatically update the current year in the footer
+      document.addEventListener('DOMContentLoaded', function () {
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    const heroLogo = document.querySelector('.hero-logo');
-    const heroSection = document.querySelector('.hero-container');
-
-    if (heroLogo && heroSection) {
-      setTimeout(() => {
-        heroLogo.classList.add('slide-in-hero-logo');
-        heroSection.classList.add('animate-hero');
-      }, 500);
-    }
-  </script>
 </body>
 
 </html>

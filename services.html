@@ -55,21 +55,8 @@
 
         <section id="services-detailed" class="section two-column" data-aos="fade-right">
             <div class="two-column-content">
-                <div class="carousel-wrapper">
-                    <div class="carousel">
-                        <button class="carousel-btn prev" aria-label="Previous Slide">‹</button>
-                        <div class="carousel-track">
-                            <img src="assets/builders.jpg" alt="Residential Renovation in Progress" />
-                            <img src="assets/blueprints.jpg" alt="Commercial Project Planning" />
-                            <img src="assets/cement.jpg" alt="Custom Concrete Work" />
-                            <img src="assets/drill.jpg" alt="Precision Drilling for Custom Installation" />
-                            <img src="assets/grinder.jpg" alt="Surface Preparation and Finishing" />
-                        </div>
-                        <button class="carousel-btn next" aria-label="Next Slide">›</button>
-                    </div>
-                </div>
                 <div class="cards">
-                    <div class="card" data-aos="zoom-in-up" data-aos-delay="100"> 
+                    <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
                         <i class="fas fa-home-lg-alt"></i>
                         <h3>Residential Renovations</h3>
                         <p>From small repairs to full-scale remodels, we treat your home as if it were our own.</p>
@@ -86,6 +73,16 @@
                         <p>Have a unique vision? Our team brings your ideas to life with precision and care.</p>
                     </div>
                 </div>
+                <div class="text">
+                    <h2>Our Extensive Expertise</h2>
+                    <p>At Innovative Repairs, we handle every detail with precision and flair. From giving your vision a
+                        clear view with windows to laying solid foundations with expert concrete work and flawless
+                        flooring, we cover every surface. We open new possibilities with precision doors, ensure
+                        seamless power with meticulous electrical work, and craft stunning surfaces with exquisite tile
+                        and smooth stucco. Our touch extends to pristine drywall, vibrant paint finishes, robust
+                        roofing, detailed compounding, and reliable plumbing solutions. Whatever your project demands,
+                        we've got the craftsmanship to deliver.</p>
+                </div>
             </div>
         </section>
 
@@ -95,48 +92,39 @@
                     <h2>Why Work With Us</h2>
                     <p>We value transparency, hard work, and delivering beyond expectations. Our team collaborates with
                         you
-                        through each step to ensure your complete satisfaction.</p>
+                        through each step to ensure your complete satisfaction. For inquiries, you can reach us at: <a
+                            href="mailto:innovativeimprovementsla@gmail.com">innovativeimprovementsla@gmail.com</a></p>
                     <a href="get-a-quote.html" class="fancy-button" style="margin-top: 1rem;" data-aos="fade-up"
-                        data-aos-delay="100"> 
+                        data-aos-delay="100">
                         <span class="button-label">Discuss Your Project</span>
                     </a>
                 </div>
                 <div class="image">
-                    <img src="assets/builders.jpg" alt="Construction Team Collaboration" /> 
+                    <img src="assets/Our-Services.jpeg" alt="Construction Team Collaboration" />
                 </div>
             </div>
         </section>
 
-        <section class="section" data-aos="fade-up">
-            <h2>Featured Projects</h2>
-            <div class="cards">
-                <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-                    <img src="assets/grinder.jpg" alt="Modern Kitchen Remodel Project">
-                    <h3>Modern Kitchen Remodel</h3>
-                    <p>Stylish and functional kitchen with premium finishes and fixtures.</p>
-                </div>
-                <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-                    <img src="assets/blueprints.jpg" alt="Commercial Office Build-Out Project"> 
-                    <h3>Office Build-Out</h3>
-                    <p>Customized commercial office space with top-tier craftsmanship.</p>
-                </div>
-                <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-                    <img src="assets/cement.jpg" alt="Outdoor Patio Upgrade Project"> 
-                    <h3>Outdoor Patio Upgrade</h3>
-                    <p>Elegant outdoor entertainment space with durable materials.</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 Innovative Repairs. All rights reserved. Pico Rivera, California.</p>
+            <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Pico Rivera, California.
+            </p>
             <div>
-                <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" aria-label="Instagram"><i
-                        class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank"
+                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
+        <script>
+            // Automatically update the current year in the footer
+            document.addEventListener('DOMContentLoaded', function () {
+                const currentYearSpan = document.getElementById('currentYear');
+                if (currentYearSpan) {
+                    currentYearSpan.textContent = new Date().getFullYear();
+                }
+            });
+        </script>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

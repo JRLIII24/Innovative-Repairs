@@ -41,26 +41,19 @@
   </header>
   <main>
     <section class="section about-intro" data-aos="zoom-in-up">
-      <h2 data-aos="fade-down" data-aos-delay="100">Who We Are</h2>
+      <h2 data-aos="fade-down" data-aos-delay="100">Crafting Legacies, One Repair at a Time</h2>
       <p data-aos="fade-up" data-aos-delay="200">
-        Innovative Repairs is a dedicated, family-owned construction and renovation company rooted in Whittier,
-        California. We are driven by a commitment to exceptional quality, unwavering integrity, and complete customer
-        satisfaction in every project we undertake.
+        Born from a vision of precision and passion, Innovative Repairs isn't just a company; it's the realization of a
+        dream by founder **Anthony Aguilera**. Rooted deeply in Whittier, California, Anthony built this family-owned
+        construction and renovation powerhouse on the bedrock of unmatched quality, unwavering integrity, and a
+        heartfelt commitment to client delight.
         <br /><br />
-        Our journey began with a simple mission: to provide reliable, high-standard repair and construction services to
-        our community. Over the years, we've grown through word-of-mouth referrals, a testament to the trust our clients
-        place in our craftsmanship and professional approach. We believe in building lasting relationships alongside
-        durable structures.
+        Our journey, spearheaded by Anthony's dedication, began with a singular, powerful mission: to transform spaces
+        with reliable, high-standard craftsmanship that stands the test of time. Every nail, every tile, every beam is
+        infused with our promise of excellence. We haven't just grown; we've flourished through the trust of our
+        community, a testament echoed in every word-of-mouth referral. Here, we don't just build structures; we forge
+        lasting relationships, ensuring every project is a masterpiece of function and design.
       </p>
-    </section>
-    <section class="section about-gallery" data-aos="fade-left" data-aos-offset="200">
-      <h2 data-aos="fade-down" data-aos-delay="100">Our Team & Process in Action</h2>
-      <div class="gallery-grid" data-aos="fade-up" data-aos-delay="150">
-        <img src="assets/builders.jpg" alt="Our Team Working on a Project" data-aos="zoom-in-up" data-aos-delay="200" />
-        <img src="assets/cement.jpg" alt="Detailed Cement Work" data-aos="zoom-in-up" data-aos-delay="300" />
-        <img src="assets/grinder.jpg" alt="Precision Grinding Tool" data-aos="zoom-in-up" data-aos-delay="400" />
-        <img src="assets/cement.jpg" alt="Drilling Equipment in Use" data-aos="zoom-in-up" data-aos-delay="500" />
-      </div>
     </section>
     <section class="section our-commitment" data-aos="fade-right" data-aos-offset="200">
       <h2 data-aos="fade-down" data-aos-delay="100">Our Commitment to Excellence</h2>
@@ -128,14 +121,21 @@
   </main>
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 Innovative Repairs. All rights reserved. Pico Rivera, California.</p>
+      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Pico Rivera, California.</p>
       <div>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" aria-label="Instagram"><i
             class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
+    <script>
+      // Automatically update the current year in the footer
+      document.addEventListener('DOMContentLoaded', function () {
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
