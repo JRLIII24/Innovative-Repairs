@@ -969,30 +969,25 @@ footer p {
 
   .navbar {
     padding: 0.75rem 1rem;
-    /* Reduced padding for more space */
   }
 
   .hero-container {
     padding: 3rem 1rem;
-    /* Consistent padding */
     min-height: 55vh;
   }
 
   .hero-container p {
     font-size: 0.95rem;
-    /* Slightly larger for readability */
     margin-bottom: 2rem;
   }
 
   .hero-logo {
     max-width: 180px;
-    /* A bit more presence */
     margin-bottom: 1.5rem;
   }
 
   .hero {
     padding: 5rem 1rem;
-    /* More balanced padding */
     min-height: 50vh;
   }
 
@@ -1003,22 +998,17 @@ footer p {
 
   .fancy-button {
     padding: 0.9rem 1.8rem;
-    /* More consistent padding */
     font-size: 0.9rem;
     width: auto;
-    /* Allow button to size to its content */
     max-width: 90%;
-    /* Prevent it from being too wide */
   }
 
   .section {
     padding: 3.5rem 1rem;
-    /* Slightly more vertical space */
   }
 
   .card {
     padding: 2rem 1.5rem;
-    /* Adjust padding for narrow screens */
   }
 
   .card h3 {
@@ -1029,13 +1019,18 @@ footer p {
     padding: 2rem 1.5rem;
   }
 
+  /* This is the new rule for mobile testimonial spacing */
+  .testimonial-card p,
+  .testimonial-card h4 {
+    margin-left: 1.5rem;
+  }
+
   .testimonial-card h4 {
     font-size: 0.95rem;
   }
 
   .gallery-item img {
     height: 240px;
-    /* Slightly taller images */
   }
 
   .carousel-track img {
