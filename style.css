@@ -1,14 +1,24 @@
 /* ==========================================================================
-   Base Styles & CSS Variables
+   Modern CSS Reset & Base Styles
    ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary-bg: #121212;
   --secondary-bg: #1E1E1E;
   --card-bg: #2A2A2A;
   --text-primary: #F0F0F0;
   --text-secondary: #A0A0A0;
-  --accent-primary: #00AEEF;
-  --accent-secondary: #0077B5;
+  --accent-primary: #FFFFFF;
+  /* Changed from blue to white */
+  --accent-secondary: #EAEAEA;
+  /* Changed from dark blue to light grey */
   --border-color: #444;
 
   --font-heading: 'Montserrat', sans-serif;
@@ -16,20 +26,27 @@
 
   --shadow-light: rgba(200, 200, 200, 0.05);
   --shadow-medium: rgba(0, 0, 0, 0.3);
-  --shadow-accent: rgba(0, 174, 239, 0.15);
+  /* New variable for the white glow effect */
+  --accent-glow: 0 0 12px rgba(255, 255, 255, 0.25);
+  --shadow-accent: rgba(255, 255, 255, 0.15);
+  /* Updated for white glow */
 
   --fancy-button-bg: #FFFFFF;
   --fancy-button-text: #1D1D1D;
   --fancy-button-hover-bg: #EAEAEA;
-  --fancy-button-hover-text: var(--accent-secondary);
+  --fancy-button-hover-text: #0077B5;
+  /* Kept a subtle blue for button hover text */
   --fancy-button-icon-color: var(--fancy-button-text);
   --fancy-button-icon-hover-color: var(--fancy-button-hover-text);
   --fancy-button-shadow: rgba(0, 0, 0, 0.1);
   --fancy-button-hover-shadow: rgba(0, 0, 0, 0.15);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
   font-family: var(--font-body);
   line-height: 1.7;
   background-color: var(--primary-bg);
@@ -53,17 +70,17 @@ h6 {
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 1.3091rem + 3.4545vw, 3.2rem);
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 1.4545rem + 1.7273vw, 2.5rem);
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 1.1273rem + 0.8636vw, 1.5rem);
   margin-bottom: 0.75rem;
 }
 
@@ -75,11 +92,23 @@ p {
 a {
   color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: var(--accent-glow);
+  /* Added glow to links */
 }
 
 a:hover {
   color: var(--accent-secondary);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  /* Enhanced glow on hover */
+}
+
+/* Accessibility Improvement */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
@@ -104,7 +133,6 @@ a:hover {
 
 .logo img {
   max-height: 80px;
-  /* Adjusted */
   transition: transform 0.3s ease;
   display: block;
 }
@@ -137,6 +165,8 @@ a:hover {
   font-size: 0.9rem;
   padding: 0.5rem 0.25rem;
   white-space: nowrap;
+  text-shadow: none;
+  /* Remove default glow from nav links for clarity */
 }
 
 .nav-links a::after {
@@ -150,6 +180,8 @@ a:hover {
   background-color: var(--accent-primary);
   transition: width 0.4s ease;
   border-radius: 2px;
+  box-shadow: var(--accent-glow);
+  /* Add glow to the underline */
 }
 
 .nav-links a:hover::after,
@@ -159,6 +191,8 @@ a:hover {
 
 .nav-links a.active {
   color: var(--accent-primary);
+  text-shadow: var(--accent-glow);
+  /* Add glow to active link text */
 }
 
 #mobile-menu {
@@ -189,20 +223,16 @@ a:hover {
 
 .hero-logo {
   max-width: 280px;
-  /* Default for desktop */
   width: 60%;
   height: auto;
   margin-bottom: 2rem;
   opacity: 0;
-  /* Initial state for JS animation */
   transform: translateY(-40px) scale(0.95);
-  /* Initial state */
-  filter: drop-shadow(0 0 10px rgba(var(--accent-primary-rgb, 0, 174, 239), 0.3));
-  /* Soft glow effect */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+  /* Updated glow for logo */
 }
 
 .hero-logo.slide-in-hero-logo {
-  /* Added by JS */
   animation: slideInHeroLogoAnimation 1s ease-out forwards;
 }
 
@@ -218,27 +248,22 @@ a:hover {
   }
 }
 
-/* Staggered animations for text and button triggered by .animate-hero on .hero-container */
 .hero-container h1,
 .hero-container p,
 .hero-container .fancy-button {
   opacity: 0;
-  /* Initially hidden */
 }
 
 .hero-container.animate-hero h1 {
   animation: fadeInUpHeroText 0.8s ease-out 0.3s forwards;
-  /* Delay slightly after logo */
 }
 
 .hero-container.animate-hero p {
   animation: fadeInUpHeroText 0.8s ease-out 0.6s forwards;
-  /* Delay slightly after h1 */
 }
 
 .hero-container.animate-hero .fancy-button {
   animation: fadeInUpButtonHero 0.8s ease-out 0.9s forwards;
-  /* Delay slightly after p */
 }
 
 @keyframes fadeInUpHeroText {
@@ -266,7 +291,6 @@ a:hover {
 }
 
 .hero-container h1 {
-  font-size: 3.2rem;
   font-weight: 700;
   text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
@@ -283,7 +307,6 @@ a:hover {
    Hero Section (services.html - Video Hero)
    ========================================================================== */
 .hero {
-  /* Original styles for video hero on other pages like services.html */
   position: relative;
   color: var(--text-primary);
   text-align: center;
@@ -304,7 +327,8 @@ a:hover {
   z-index: 0;
 }
 
-.hero-video-wrapper video {
+.hero-video-wrapper video,
+.hero-video-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -322,14 +346,13 @@ a:hover {
 }
 
 .hero-content {
-  /* For video hero content */
   position: relative;
   z-index: 2;
   max-width: 800px;
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 1.3818rem + 4.0909vw, 3.5rem);
   font-weight: 700;
   text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -374,7 +397,6 @@ a:hover {
 
 .fancy-button::after {
   content: '\f061';
-  /* FontAwesome right arrow */
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
@@ -424,7 +446,6 @@ a:hover {
 }
 
 .section:not(.hero-container) h2 {
-  /* Avoid styling hero h1 as a section h2 */
   margin-bottom: 3rem;
   position: relative;
   display: inline-block;
@@ -439,6 +460,8 @@ a:hover {
   bottom: -10px;
   left: 20%;
   border-radius: 2px;
+  box-shadow: var(--accent-glow);
+  /* Add glow to the underline */
 }
 
 .cards {
@@ -459,7 +482,6 @@ a:hover {
   flex-direction: column;
   text-align: left;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .card:hover {
@@ -482,6 +504,8 @@ a:hover {
   color: var(--accent-primary);
   text-align: center;
   width: 100%;
+  text-shadow: var(--accent-glow);
+  /* Add glow to icons */
 }
 
 .card h3 {
@@ -652,7 +676,7 @@ a:hover {
 }
 
 .carousel-btn:hover {
-  background: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -732,19 +756,20 @@ footer p {
   font-size: 1.8rem;
   margin: 0 0.8rem;
   transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: none;
+  /* No glow on footer icons by default */
 }
 
 .footer-content div a:hover {
   color: var(--accent-primary);
   transform: scale(1.2) translateY(-2px);
+  text-shadow: var(--accent-glow);
 }
 
 /* ==========================================================================
    Animations
    ========================================================================== */
 @keyframes slideDownNav {
-
-  /* For mobile menu */
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -755,8 +780,6 @@ footer p {
     transform: translateY(0);
   }
 }
-
-/* Other keyframes (fadeInUpHeroText, etc.) are defined near their usage */
 
 /* ==========================================================================
    Responsive Media Queries
@@ -786,11 +809,6 @@ footer p {
     margin-left: 1rem;
   }
 
-  /* Responsive Hero (index.html - Logo Hero) */
-  .hero-container h1 {
-    font-size: 2.5rem;
-  }
-
   .hero-container p {
     font-size: 1.1rem;
   }
@@ -799,17 +817,9 @@ footer p {
     max-width: 220px;
   }
 
-  /* Responsive Hero (services.html - Video Hero) */
-  .hero-content h1 {
-    font-size: 2.8rem;
-  }
-
-  /* If .hero class is used */
   .hero-content p {
     font-size: 1.1rem;
   }
-
-  /* If .hero class is used */
 
   .fancy-button {
     padding: 0.8rem 1.8rem;
@@ -845,7 +855,6 @@ footer p {
     border-top: 1px solid var(--border-color);
     align-items: center;
     z-index: 999;
-    /* Ensure dropdown is on top */
   }
 
   .nav-links.active {
@@ -871,7 +880,7 @@ footer p {
 
   .nav-links a:hover,
   .nav-links a.active {
-    background-color: var(--accent-secondary);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
   }
 
@@ -881,14 +890,9 @@ footer p {
     margin-left: 0;
   }
 
-  /* Responsive Hero (index.html - Logo Hero) */
   .hero-container {
     padding: 3rem 1.5rem;
     min-height: 60vh;
-  }
-
-  .hero-container h1 {
-    font-size: 2rem;
   }
 
   .hero-container p {
@@ -900,30 +904,17 @@ footer p {
     margin-bottom: 1.5rem;
   }
 
-  /* Responsive Hero (services.html - Video Hero) */
   .hero {
     padding: 6rem 1.5rem;
     min-height: 60vh;
   }
 
-  /* If .hero class is used */
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  /* If .hero class is used */
   .hero-content p {
     font-size: 1rem;
   }
 
-  /* If .hero class is used */
-
   .section {
     padding: 4rem 1.5rem;
-  }
-
-  .section:not(.hero-container) h2 {
-    font-size: 1.8rem;
   }
 
   .cards {
@@ -976,85 +967,75 @@ footer p {
     max-height: 45px;
   }
 
-  /* Responsive Hero (index.html - Logo Hero) */
+  .navbar {
+    padding: 0.75rem 1rem;
+    /* Reduced padding for more space */
+  }
+
   .hero-container {
-    padding: 2.5rem 1rem;
+    padding: 3rem 1rem;
+    /* Consistent padding */
     min-height: 55vh;
   }
 
-  .hero-container h1 {
-    font-size: 1.7rem;
-  }
-
   .hero-container p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    /* Slightly larger for readability */
     margin-bottom: 2rem;
   }
 
   .hero-logo {
-    max-width: 160px;
-    margin-bottom: 1.2rem;
+    max-width: 180px;
+    /* A bit more presence */
+    margin-bottom: 1.5rem;
   }
 
-  /* Responsive Hero (services.html - Video Hero) */
   .hero {
-    padding: 4rem 1rem;
+    padding: 5rem 1rem;
+    /* More balanced padding */
     min-height: 50vh;
   }
 
-  /* If .hero class is used */
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-
-  /* If .hero class is used */
   .hero-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 2rem;
   }
 
-  /* If .hero class is used */
-
   .fancy-button {
-    width: 90%;
-    max-width: 300px;
-    padding: 0.9rem;
-    font-size: 0.9rem;
-  }
-
-  .hero-container .fancy-button {
-    width: auto;
     padding: 0.9rem 1.8rem;
+    /* More consistent padding */
+    font-size: 0.9rem;
+    width: auto;
+    /* Allow button to size to its content */
+    max-width: 90%;
+    /* Prevent it from being too wide */
   }
-
-  /* Keep hero button more contained */
 
   .section {
-    padding: 3rem 1rem;
-  }
-
-  .section:not(.hero-container) h2 {
-    font-size: 1.6rem;
+    padding: 3.5rem 1rem;
+    /* Slightly more vertical space */
   }
 
   .card {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    /* Adjust padding for narrow screens */
   }
 
   .card h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .testimonial-card {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .testimonial-card h4 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .gallery-item img {
-    height: 220px;
+    height: 240px;
+    /* Slightly taller images */
   }
 
   .carousel-track img {
@@ -1063,5 +1044,13 @@ footer p {
 
   #quote iframe {
     min-height: 550px;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  footer {
+    padding: 2.5rem 1rem;
   }
 }

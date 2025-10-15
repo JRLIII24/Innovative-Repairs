@@ -43,6 +43,7 @@
             <div class="hero-video-wrapper">
                 <video playsinline autoplay muted loop id="serviceHeroVideo">
                     <source src="assets/precision-video.mp4" type="video/mp4">
+                    <img src="assets/blueprints.jpg" alt="Blueprints and tools, indicating precision work." />
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -100,7 +101,7 @@
                     </a>
                 </div>
                 <div class="image">
-                    <img src="assets/Our-Services.jpeg" alt="Construction Team Collaboration" />
+                    <img src="assets/Our-Services.jpeg" alt="Construction Team Collaboration" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -113,18 +114,9 @@
             </p>
             <div>
                 <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank"
-                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-        <script>
-            // Automatically update the current year in the footer
-            document.addEventListener('DOMContentLoaded', function () {
-                const currentYearSpan = document.getElementById('currentYear');
-                if (currentYearSpan) {
-                    currentYearSpan.textContent = new Date().getFullYear();
-                }
-            });
-        </script>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
