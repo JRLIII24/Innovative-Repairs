@@ -513,6 +513,28 @@ button:focus-visible {
 }
 
 /* ==========================================================================
+   Video Showcase Section - UPDATED
+   ========================================================================== */
+.video-showcase .video-container {
+  width: 100%;
+  max-width: 800px;
+  /* Reduced max-width for better desktop viewing */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px var(--shadow-medium);
+  border: 2px solid var(--border-color);
+}
+
+.video-showcase video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  /* Ensures consistent shape */
+}
+
+/* ==========================================================================
    Specific Sections (Testimonials, Contact, About, Services, Gallery)
    ========================================================================== */
 .testimonials {
@@ -1019,7 +1041,6 @@ footer p {
     padding: 2rem 1.5rem;
   }
 
-  /* This is the new rule for mobile testimonial spacing */
   .testimonial-card p,
   .testimonial-card h4 {
     margin-left: 1.5rem;
