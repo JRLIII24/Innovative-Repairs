@@ -788,21 +788,6 @@ footer p {
 }
 
 /* ==========================================================================
-   Animations
-   ========================================================================== */
-@keyframes slideDownNav {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==========================================================================
    Responsive Media Queries
    ========================================================================== */
 @media (max-width: 992px) {
@@ -863,8 +848,9 @@ footer p {
     position: static;
   }
 
+  /* === UPDATED CODE FOR SMOOTH ANIMATION === */
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     background-color: var(--secondary-bg);
@@ -876,12 +862,22 @@ footer p {
     border-top: 1px solid var(--border-color);
     align-items: center;
     z-index: 999;
+
+    /* Hide the menu by default and set up transition */
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   }
 
   .nav-links.active {
-    display: flex;
-    animation: slideDownNav 0.5s ease-out;
+    /* Show the menu when active class is present */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
+
+  /* === END OF UPDATED CODE === */
 
   .nav-links li {
     width: 100%;
