@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Modern CSS Reset & Base Styles!
+   Modern CSS Reset & Base Styles
    ========================================================================== */
 *,
 *::before,
@@ -513,12 +513,11 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   Video Showcase Section - UPDATED
+   Video Showcase Section
    ========================================================================== */
 .video-showcase .video-container {
   width: 100%;
   max-width: 800px;
-  /* Reduced max-width for better desktop viewing */
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -530,8 +529,8 @@ button:focus-visible {
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 16 / 9;
-  /* Ensures consistent shape */
+  aspect-ratio: 2.39 / 1;
+  /* More cinematic aspect ratio for desktop */
 }
 
 /* ==========================================================================
@@ -937,6 +936,11 @@ footer p {
 
   .section {
     padding: 4rem 1.5rem;
+  }
+
+  .video-showcase video {
+    aspect-ratio: 4 / 3;
+    /* Taller aspect ratio for mobile */
   }
 
   .cards {
