@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // AOS Initialization (This is left for your other pages)
   AOS.init({
     duration: 600, 
     easing: 'ease-in-out',
@@ -63,7 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
-    if (nextButton) nextButton.addEventListener("click", () => { stopAutoTroll(); nextSlide(); startAutoScroll(); });
+    // FIXED TYPO HERE: stopAutoTroll is now stopAutoScroll
+    if (nextButton) nextButton.addEventListener("click", () => { stopAutoScroll(); nextSlide(); startAutoScroll(); });
     if (prevButton) prevButton.addEventListener("click", () => { stopAutoScroll(); prevSlide(); startAutoScroll(); });
     
     if (slides.length > 1) {
