@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // AOS Initialization (This is left for your other pages)
   AOS.init({
     duration: 600, 
     easing: 'ease-in-out',
@@ -108,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // Gallery Tab Filtering
+  // Gallery Tab Filtering (PERFORMANCE FIX)
   // ==========================================================================
   const tabContainer = document.querySelector(".gallery-tabs");
   const galleryItems = document.querySelectorAll(".gallery-item");
@@ -128,14 +127,14 @@ document.addEventListener("DOMContentLoaded", () => {
       clickedTab.classList.add("active");
       const filter = clickedTab.getAttribute("data-tab");
 
-      // 3. Filter the gallery items
+      // 3. Filter the gallery items (This is the new, fast code)
       galleryItems.forEach(item => {
         const itemCategory = item.getAttribute("data-category");
         
         if (filter === "all" || itemCategory === filter) {
-          item.style.display = "block"; // Show matching items
+          item.classList.remove("gallery-item-hidden"); // Show matching items
         } else {
-          item.style.display = "none"; // Hide non-matching items
+          item.classList.add("gallery-item-hidden"); // Hide non-matching items
         }
       });
       
