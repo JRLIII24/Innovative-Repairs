@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // AOS Initialization
+  // AOS Initialization (This is left for your other pages)
   AOS.init({
-    duration: 600, // Faster animation speed
+    duration: 600, 
     easing: 'ease-in-out',
     once: true,
     offset: 50,
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function stopAutoScroll() { clearInterval(autoScrollInterval); }
 
-    if (nextButton) nextButton.addEventListener("click", () => { stopAutoScroll(); nextSlide(); startAutoScroll(); });
+    if (nextButton) nextButton.addEventListener("click", () => { stopAutoTroll(); nextSlide(); startAutoScroll(); });
     if (prevButton) prevButton.addEventListener("click", () => { stopAutoScroll(); prevSlide(); startAutoScroll(); });
     
     if (slides.length > 1) {
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mobile Menu Toggle (This is the original, working code)
+  // Mobile Menu Toggle
   const menuToggle = document.getElementById("mobile-menu");
   const navLinksUl = document.getElementById("nav-links");
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // Gallery Tab Filtering (This is the new gallery code)
+  // Gallery Tab Filtering
   // ==========================================================================
   const tabContainer = document.querySelector(".gallery-tabs");
   const galleryItems = document.querySelectorAll(".gallery-item");
@@ -139,16 +139,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
       
-      // 4. Refresh AOS to animate in new items
-      // (AOS won't re-animate items set to 'once: true', 
-      // but this ensures positions are correct for new items)
-      AOS.refresh();
+      // 4. Refresh line removed:
+      // AOS.refresh(); // <-- THIS LINE IS NOW GONE
     });
   }
 
-  // This is the original active nav link logic
   const mainNavLinksContainer = document.getElementById('nav-links'); 
-  const navLinksItems = mainVavLinksContainer ? Array.from(mainNavLinksContainer.querySelectorAll('a')) : [];
+  const navLinksItems = mainNavLinksContainer ? Array.from(mainNavLinksContainer.querySelectorAll('a')) : [];
 
   function setActiveLink() {
     if (!mainNavLinksContainer || navLinksItems.length === 0) return; 
