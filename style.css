@@ -849,6 +849,7 @@ footer p {
   }
 
   /* === UPDATED CODE FOR SMOOTH ANIMATION === */
+  /* This is the original mobile menu dropdown CSS */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -1154,6 +1155,11 @@ footer p {
     gap: 1rem;
   }
 
+  /* Re-add the 1-column layout for cards on mobile, but NOT gallery-grid */
+  .cards:not(.gallery-grid) {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-item img {
     height: 180px;
   }
@@ -1170,5 +1176,14 @@ footer p {
   .gallery-item img {
     height: 120px;
     /* Shorter height for 3-col mobile */
+  }
+
+  /* Fix for original .gallery-item img height override */
+  .gallery-item img {
+    height: 120px;
+  }
+
+  .carousel-track img {
+    height: 250px;
   }
 }
