@@ -2,237 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery - Innovative Repairs Showcase</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse project previews from Innovative Repairs across interiors, bathrooms, exteriors, and repairs." />
+  <title>Gallery | Innovative Repairs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" />
-                </a>
-            </div>
-            <div class="nav-wrapper">
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html" data-navid="home">Home</a></li>
-                    <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
-                    <li><a href="services.html" data-navid="services">Services</a></li>
-                    <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
-                    <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
-                </ul>
-            </div>
-            <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+<body class="page-gallery">
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="logo">
+        <a href="index.html" aria-label="Innovative Repairs home">
+          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" decoding="async" fetchpriority="high" />
+        </a>
+      </div>
+      <div class="nav-wrapper">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" data-navid="home">Home</a></li>
+          <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+          <li><a href="services.html" data-navid="services">Services</a></li>
+          <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
+          <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
 
-    <main>
-        <section class="gallery-section">
-            <h1>Our Work Gallery</h1>
-            <p
-                style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; color: var(--text-secondary);">
-                A glimpse into the quality and variety of projects we've proudly completed. Click to enlarge.</p>
+  <main>
+    <!-- Gallery -->
+    <section class="gallery-section">
+      <h1>Our Work Gallery</h1>
+      <p>A glimpse into the quality and variety of projects we've proudly completed. Click any preview to enlarge.</p>
 
-            <div class="gallery-tabs">
-                <button class="tab-link active" data-tab="all">All</button>
-                <button class="tab-link" data-tab="interiors">Interiors</button>
-                <button class="tab-link" data-tab="bathrooms">Bathrooms</button>
-                <button class="tab-link" data-tab="exteriors">Exteriors</button>
-                <button class="tab-link" data-tab="repairs">Repairs</button>
-            </div>
+      <div class="gallery-tabs">
+        <button class="tab-link active" data-tab="all">All</button>
+        <button class="tab-link" data-tab="interiors">Interiors</button>
+        <button class="tab-link" data-tab="bathrooms">Bathrooms</button>
+        <button class="tab-link" data-tab="exteriors">Exteriors</button>
+        <button class="tab-link" data-tab="repairs">Repairs</button>
+      </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="interiors"><a href="assets/Edits-15.jpg"
-                        data-lightbox="work-gallery" data-title="Spacious Living Room and Kitchen"><img
-                            src="assets/Edits-15.jpg" alt="Spacious Living Room and Kitchen" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="bathrooms"><a href="assets/Edits-23.jpg"
-                        data-lightbox="work-gallery" data-title="Modern Wood Accent Bathroom"><img
-                            src="assets/Edits-23.jpg" alt="Modern Wood Accent Bathroom" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="bathrooms"><a href="assets/Edits-34.jpg"
-                        data-lightbox="work-gallery" data-title="Bright White Bathroom"><img src="assets/Edits-34.jpg"
-                            alt="Bright White Bathroom" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="interiors"><a href="assets/Edits-12.jpg"
-                        data-lightbox="work-gallery" data-title="Modern White Living Room"><img
-                            src="assets/Edits-12.jpg" alt="Modern White Living Room" loading="lazy"></a>
-                </div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/Truck.jpeg"
-                        data-lightbox="work-gallery" data-title="Innovative Repairs Truck"><img src="assets/Truck.jpeg"
-                            alt="Innovative Repairs Truck" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/cement-walkway.jpeg"
-                        data-lightbox="work-gallery" data-title="Cement Walkway Installation"><img
-                            src="assets/cement-walkway.jpeg" alt="Cement Walkway Installation" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="repairs"><a href="assets/Electric-pannel.jpeg"
-                        data-lightbox="work-gallery" data-title="Electrical Panel Upgrade"><img
-                            src="assets/Electric-pannel.jpeg" alt="Electrical Panel Upgrade" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="bathrooms"><a href="assets/Glass-Bathroom.jpeg"
-                        data-lightbox="work-gallery" data-title="Modern Glass Bathroom Remodel"><img
-                            src="assets/Glass-Bathroom.jpeg" alt="Modern Glass Bathroom Remodel" loading="lazy"></a>
-                </div>
-                <div class="gallery-item" data-category="bathrooms"><a href="assets/Grey-Bathroom.jpeg"
-                        data-lightbox="work-gallery" data-title="Stylish Grey Bathroom Renovation"><img
-                            src="assets/Grey-Bathroom.jpeg" alt="Stylish Grey Bathroom Renovation" loading="lazy"></a>
-                </div>
-                <div class="gallery-item" data-category="interiors"><a href="assets/Kitchen.jpeg"
-                        data-lightbox="work-gallery" data-title="Contemporary Kitchen Remodel"><img
-                            src="assets/Kitchen.jpeg" alt="Contemporary Kitchen Remodel" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="interiors"><a href="assets/Kitchen2.jpeg"
-                        data-lightbox="work-gallery" data-title="Spacious Kitchen Renovation"><img
-                            src="assets/Kitchen2.jpeg" alt="Spacious Kitchen Renovation" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="bathrooms"><a href="assets/Marble-Bathroom.jpeg"
-                        data-lightbox="work-gallery" data-title="Luxurious Marble Bathroom"><img
-                            src="assets/Marble-Bathroom.jpeg" alt="Luxurious Marble Bathroom" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="repairs"><a href="assets/Waterheater.jpeg"
-                        data-lightbox="work-gallery" data-title="Water Heater Installation"><img
-                            src="assets/Waterheater.jpeg" alt="Water Heater Installation" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="interiors"><a href="assets/Fireplace.jpeg"
-                        data-lightbox="work-gallery" data-title="Fireplace Renovation"><img src="assets/Fireplace.jpeg"
-                            alt="Fireplace Renovation" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5533.jpeg"
-                        data-lightbox="work-gallery" data-title="Two-Tone Paver Patio"><img src="assets/IMG_5533.jpeg"
-                            alt="Two-Tone Paver Patio" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/FullSizeRender.jpeg"
-                        data-lightbox="work-gallery" data-title="Herringbone Paver Patio with Steps"><img
-                            src="assets/FullSizeRender.jpeg" alt="Herringbone Paver Patio with Steps"
-                            loading="lazy"></a>
-                </div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5410.jpeg"
-                        data-lightbox="work-gallery" data-title="Paver Walkway with Artificial Turf"><img
-                            src="assets/IMG_5410.jpeg" alt="Paver Walkway with Artificial Turf" loading="lazy"></a>
-                </div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5534.jpeg"
-                        data-lightbox="work-gallery" data-title="Side Yard Paver Walkway"><img
-                            src="assets/IMG_5534.jpeg" alt="Side Yard Paver Walkway" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_1913.jpeg"
-                        data-lightbox="work-gallery" data-title="Large Paver Patio at Sunset"><img
-                            src="assets/IMG_1913.jpeg" alt="Large Paver Patio at Sunset" loading="lazy"></a></div>
-                <div class="gallery-item" data-category="exteriors">
-                    <a href="assets/IMG_8360.jpeg" data-lightbox="work-gallery"
-                        data-title="Wall Insulation and Framing">
-                        <img src="assets/IMG_8360.jpeg" alt="Wall Insulation and Framing" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <a href="assets/IMG_8291.jpeg" data-lightbox="work-gallery" data-title="Attic Insulation">
-                        <img src="assets/IMG_8291.jpeg" alt="Attic Insulation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_8596.jpeg" data-lightbox="work-gallery"
-                        data-title="Completed Electrical Panel Installation">
-                        <img src="assets/IMG_8596.jpeg" alt="Completed Electrical Panel Installation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_8293.jpeg" data-lightbox="work-gallery" data-title="New Laundry Plumbing">
-                        <img src="assets/IMG_8293.jpeg" alt="New Laundry Plumbing" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_8583.jpeg" data-lightbox="work-gallery"
-                        data-title="Electrical Panel Upgrade in Progress">
-                        <img src="assets/IMG_8583.jpeg" alt="Electrical Panel Upgrade in Progress" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="exteriors">
-                    <a href="assets/IMG_7544.jpeg" data-lightbox="work-gallery" data-title="Concrete Foundation Work">
-                        <img src="assets/IMG_7544.jpeg" alt="Concrete Foundation Work" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <a href="assets/IMG_8289.jpeg" data-lightbox="work-gallery"
-                        data-title="Ceiling Insulation Installation">
-                        <img src="assets/IMG_8289.jpeg" alt="Ceiling Insulation Installation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="exteriors">
-                    <a href="assets/IMG_8676.jpeg" data-lightbox="work-gallery"
-                        data-title="Exterior Stucco Application">
-                        <img src="assets/IMG_8676.jpeg" alt="Exterior Stucco Application" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <a href="assets/IMG_8294.jpeg" data-lightbox="work-gallery" data-title="Room Insulation">
-                        <img src="assets/IMG_8294.jpeg" alt="Room Insulation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="bathrooms">
-                    <a href="assets/IMG_8292.jpeg" data-lightbox="work-gallery"
-                        data-title="Bathroom Framing and Insulation">
-                        <img src="assets/IMG_8292.jpeg" alt="Bathroom Framing and Insulation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_9621.jpeg" data-lightbox="work-gallery"
-                        data-title="HALO Water System Installation">
-                        <img src="assets/IMG_9621.jpeg" alt="HALO Water System Installation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_2168.jpeg" data-lightbox="work-gallery"
-                        data-title="Rooftop Solar Panel Installation">
-                        <img src="assets/IMG_2168.jpeg" alt="Rooftop Solar Panel Installation" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_2978.jpeg" data-lightbox="work-gallery" data-title="Electrical Panel Wiring">
-                        <img src="assets/IMG_2978.jpeg" alt="Electrical Panel Wiring" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <a href="assets/IMG_4238.jpeg" data-lightbox="work-gallery" data-title="Interior Room Framing">
-                        <img src="assets/IMG_4238.jpeg" alt="Interior Room Framing" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="interiors">
-                    <a href="assets/IMG_3533.jpeg" data-lightbox="work-gallery" data-title="Modern Kitchen Remodel">
-                        <img src="assets/IMG_3533.jpeg" alt="Modern Kitchen Remodel" loading="lazy">
-                    </a>
-                </div>
-                <div class="gallery-item" data-category="repairs">
-                    <a href="assets/IMG_8822.jpeg" data-lightbox="work-gallery" data-title="AC Unit Installation">
-                        <img src="assets/IMG_8822.jpeg" alt="AC Unit Installation" loading="lazy">
-                    </a>
-                </div>
-            </div>
-        </section>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="interiors"><a href="assets/Edits-15.jpg" data-lightbox="work-gallery" data-title="Spacious Living Room and Kitchen"><img src="assets/Edits-15.jpg" alt="Spacious Living Room and Kitchen" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/Edits-23.jpg" data-lightbox="work-gallery" data-title="Modern Wood Accent Bathroom"><img src="assets/Edits-23.jpg" alt="Modern Wood Accent Bathroom" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/Edits-34.jpg" data-lightbox="work-gallery" data-title="Bright White Bathroom"><img src="assets/Edits-34.jpg" alt="Bright White Bathroom" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/Edits-12.jpg" data-lightbox="work-gallery" data-title="Modern White Living Room"><img src="assets/Edits-12.jpg" alt="Modern White Living Room" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/Truck.jpeg" data-lightbox="work-gallery" data-title="Innovative Repairs Truck"><img src="assets/Truck.jpeg" alt="Innovative Repairs Truck" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/cement-walkway.jpeg" data-lightbox="work-gallery" data-title="Cement Walkway Installation"><img src="assets/cement-walkway.jpeg" alt="Cement Walkway Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/Electric-pannel.jpeg" data-lightbox="work-gallery" data-title="Electrical Panel Upgrade"><img src="assets/Electric-pannel.jpeg" alt="Electrical Panel Upgrade" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/Glass-Bathroom.jpeg" data-lightbox="work-gallery" data-title="Modern Glass Bathroom Remodel"><img src="assets/Glass-Bathroom.jpeg" alt="Modern Glass Bathroom Remodel" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/Grey-Bathroom.jpeg" data-lightbox="work-gallery" data-title="Stylish Grey Bathroom Renovation"><img src="assets/Grey-Bathroom.jpeg" alt="Stylish Grey Bathroom Renovation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/Kitchen.jpeg" data-lightbox="work-gallery" data-title="Contemporary Kitchen Remodel"><img src="assets/Kitchen.jpeg" alt="Contemporary Kitchen Remodel" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/Kitchen2.jpeg" data-lightbox="work-gallery" data-title="Spacious Kitchen Renovation"><img src="assets/Kitchen2.jpeg" alt="Spacious Kitchen Renovation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/Marble-Bathroom.jpeg" data-lightbox="work-gallery" data-title="Luxurious Marble Bathroom"><img src="assets/Marble-Bathroom.jpeg" alt="Luxurious Marble Bathroom" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/Waterheater.jpeg" data-lightbox="work-gallery" data-title="Water Heater Installation"><img src="assets/Waterheater.jpeg" alt="Water Heater Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/Fireplace.jpeg" data-lightbox="work-gallery" data-title="Fireplace Renovation"><img src="assets/Fireplace.jpeg" alt="Fireplace Renovation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5533.jpeg" data-lightbox="work-gallery" data-title="Two-Tone Paver Patio"><img src="assets/IMG_5533.jpeg" alt="Two-Tone Paver Patio" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/FullSizeRender.jpeg" data-lightbox="work-gallery" data-title="Herringbone Paver Patio with Steps"><img src="assets/FullSizeRender.jpeg" alt="Herringbone Paver Patio with Steps" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5410.jpeg" data-lightbox="work-gallery" data-title="Paver Walkway with Artificial Turf"><img src="assets/IMG_5410.jpeg" alt="Paver Walkway with Artificial Turf" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_5534.jpeg" data-lightbox="work-gallery" data-title="Side Yard Paver Walkway"><img src="assets/IMG_5534.jpeg" alt="Side Yard Paver Walkway" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_1913.jpeg" data-lightbox="work-gallery" data-title="Large Paver Patio at Sunset"><img src="assets/IMG_1913.jpeg" alt="Large Paver Patio at Sunset" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_8360.jpeg" data-lightbox="work-gallery" data-title="Wall Insulation and Framing"><img src="assets/IMG_8360.jpeg" alt="Wall Insulation and Framing" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/IMG_8291.jpeg" data-lightbox="work-gallery" data-title="Attic Insulation"><img src="assets/IMG_8291.jpeg" alt="Attic Insulation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_8596.jpeg" data-lightbox="work-gallery" data-title="Completed Electrical Panel Installation"><img src="assets/IMG_8596.jpeg" alt="Completed Electrical Panel Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_8293.jpeg" data-lightbox="work-gallery" data-title="New Laundry Plumbing"><img src="assets/IMG_8293.jpeg" alt="New Laundry Plumbing" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_8583.jpeg" data-lightbox="work-gallery" data-title="Electrical Panel Upgrade in Progress"><img src="assets/IMG_8583.jpeg" alt="Electrical Panel Upgrade in Progress" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_7544.jpeg" data-lightbox="work-gallery" data-title="Concrete Foundation Work"><img src="assets/IMG_7544.jpeg" alt="Concrete Foundation Work" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/IMG_8289.jpeg" data-lightbox="work-gallery" data-title="Ceiling Insulation Installation"><img src="assets/IMG_8289.jpeg" alt="Ceiling Insulation Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="exteriors"><a href="assets/IMG_8676.jpeg" data-lightbox="work-gallery" data-title="Exterior Stucco Application"><img src="assets/IMG_8676.jpeg" alt="Exterior Stucco Application" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/IMG_8294.jpeg" data-lightbox="work-gallery" data-title="Room Insulation"><img src="assets/IMG_8294.jpeg" alt="Room Insulation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="bathrooms"><a href="assets/IMG_8292.jpeg" data-lightbox="work-gallery" data-title="Bathroom Framing and Insulation"><img src="assets/IMG_8292.jpeg" alt="Bathroom Framing and Insulation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_9621.jpeg" data-lightbox="work-gallery" data-title="HALO Water System Installation"><img src="assets/IMG_9621.jpeg" alt="HALO Water System Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_2168.jpeg" data-lightbox="work-gallery" data-title="Rooftop Solar Panel Installation"><img src="assets/IMG_2168.jpeg" alt="Rooftop Solar Panel Installation" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_2978.jpeg" data-lightbox="work-gallery" data-title="Electrical Panel Wiring"><img src="assets/IMG_2978.jpeg" alt="Electrical Panel Wiring" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/IMG_4238.jpeg" data-lightbox="work-gallery" data-title="Interior Room Framing"><img src="assets/IMG_4238.jpeg" alt="Interior Room Framing" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="interiors"><a href="assets/IMG_3533.jpeg" data-lightbox="work-gallery" data-title="Modern Kitchen Remodel"><img src="assets/IMG_3533.jpeg" alt="Modern Kitchen Remodel" loading="lazy" decoding="async"></a></div>
+        <div class="gallery-item" data-category="repairs"><a href="assets/IMG_8822.jpeg" data-lightbox="work-gallery" data-title="AC Unit Installation"><img src="assets/IMG_8822.jpeg" alt="AC Unit Installation" loading="lazy" decoding="async"></a></div>
+      </div>
+    </section>
 
-        <section class="section cta-gallery">
-            <h2>Inspired by Our Work?</h2>
-            <p>Let's discuss how we can bring this level of quality and dedication to your next project.</p>
-            <a href="get-a-quote.html" class="fancy-button">
-                <span class="button-label">Get Your Free Quote</span>
-            </a>
-        </section>
-    </main>
+    <!-- CTA -->
+    <section class="section" data-aos="zoom-in-up">
+      <h2>Inspired by Our Work?</h2>
+      <p>Let's discuss how we can bring this level of quality and dedication to your next project.</p>
+      <a href="get-a-quote.html" class="btn btn-primary">
+        <span>Get Your Free Quote</span>
+      </a>
+    </section>
+  </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.
-            </p>
-            <div>
-                <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank"
-                    rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.</p>
+      <div>
+        <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
