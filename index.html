@@ -4,15 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Innovative Repairs provides premium renovation, construction, and repair services across Southern California." />
-  <title>Innovative Repairs | Construction, Renovation, and Repair Experts</title>
+  <meta name="description" content="Innovative Repairs — premium renovation, construction, and repair services across Southern California. Built with precision, delivered with integrity." />
+  <title>Innovative Repairs — Construction, Renovation & Repair Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preload" as="image" href="assets/Innovative Repairs.png" fetchpriority="high" />
 </head>
 
 <body class="page-home">
@@ -20,16 +22,20 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" decoding="async" fetchpriority="high" />
+          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <span class="logo-mark">
+            <span class="word-1">Innovative</span>
+            <span class="word-2">Repairs · Est. SoCal</span>
+          </span>
         </a>
       </div>
       <div class="nav-wrapper">
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" data-navid="home">Home</a></li>
-          <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+          <li><a href="about-us.html" data-navid="about-us">Studio</a></li>
           <li><a href="services.html" data-navid="services">Services</a></li>
-          <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
-          <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+          <li><a href="gallery.html" data-navid="gallery">Work</a></li>
+          <li><a href="get-a-quote.html" class="nav-cta" data-navid="get-a-quote">Start a Project</a></li>
         </ul>
       </div>
       <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
@@ -39,117 +45,369 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero-container">
-      <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" class="hero-logo" loading="eager" decoding="async" fetchpriority="high" />
-      <h1>Built With Precision. Delivered With Integrity.</h1>
-      <p>From emergency repairs to complete renovations, we bring craftsmanship, communication, and dependable execution to every project.</p>
-      <a href="get-a-quote.html" class="btn btn-primary">
-        <span>Request a Quote</span>
-      </a>
-    </section>
-
-    <!-- Core Services -->
-    <section class="section" data-aos="fade-up">
-      <h2>Our Core Services</h2>
-      <p>Residential, commercial, and custom construction work handled by one trusted team.</p>
-      <div class="cards">
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-          <i class="fas fa-hammer"></i>
-          <h3>Residential Renovations</h3>
-          <p>Kitchen and bath upgrades, additions, conversions, and full remodels built for long-term durability.</p>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-          <i class="fas fa-industry"></i>
-          <h3>Commercial Construction</h3>
-          <p>Efficient buildouts and improvements designed for functionality, compliance, and clean finishes.</p>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-          <i class="fas fa-lightbulb"></i>
-          <h3>Custom Projects</h3>
-          <p>Specialized work tailored to your goals, from one-off upgrades to complex multi-phase projects.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Showcase -->
-    <section class="section video-showcase" data-aos="fade-up">
-      <h2>See Our Craftsmanship in Action</h2>
-      <div class="video-container">
-        <video controls playsinline preload="none" poster="assets/Camera.MOV">
-          <source src="assets/Camera.MOV" type="video/quicktime" />
+    <!-- ═══════════════════════════════════════════════════════════
+         CINEMA HERO — Camera.MOV background + industrial typography
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="cinema-hero" aria-label="Innovative Repairs intro">
+      <div class="cinema-hero-video">
+        <video autoplay muted loop playsinline preload="auto">
           <source src="assets/Camera.MOV" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="assets/Camera.MOV" type="video/quicktime" />
         </video>
       </div>
-    </section>
+      <div class="cinema-hero-grid" aria-hidden="true"></div>
+      <div class="cinema-hero-scrim" aria-hidden="true"></div>
 
-    <!-- Portfolio Preview -->
-    <section class="section" data-aos="fade-up">
-      <h2>Portfolio Highlights</h2>
-      <p>Browse selected projects that showcase the quality and range of our work.</p>
-      <div class="cards gallery-cards">
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-          <a href="assets/Edits-15.jpg" data-lightbox="home-gallery" data-title="Spacious Living Room and Kitchen">
-            <img src="assets/Edits-15.jpg" alt="Spacious living room and kitchen" loading="lazy" decoding="async" />
-          </a>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-          <a href="assets/Edits-23.jpg" data-lightbox="home-gallery" data-title="Modern Wood Accent Bathroom">
-            <img src="assets/Edits-23.jpg" alt="Modern wood accent bathroom" loading="lazy" decoding="async" />
-          </a>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-          <a href="assets/Edits-34.jpg" data-lightbox="home-gallery" data-title="Bright White Bathroom">
-            <img src="assets/Edits-34.jpg" alt="Bright white bathroom" loading="lazy" decoding="async" />
-          </a>
+      <div class="cinema-hero-stage cinema-hero-stage--text-only">
+        <div class="cinema-hero-headline-wrap">
+          <h1 class="cinema-hero-headline">
+            <span class="line"><span class="line-inner">Innovative</span></span>
+            <span class="line"><span class="line-inner">Repairs</span></span>
+          </h1>
+          <div class="cinema-hero-actions">
+            <a href="get-a-quote.html" class="btn btn-primary" data-magnetic>
+              <span>Request a Quote</span>
+              <span class="arrow"></span>
+            </a>
+            <a href="gallery.html" class="btn btn-secondary" data-magnetic>
+              <span>See the Work</span>
+              <span class="arrow"></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a href="gallery.html" class="btn btn-secondary view-gallery-button" data-aos="fade-up" data-aos-delay="350">
-        <span>View Full Gallery</span>
-      </a>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="section testimonials" data-aos="fade-up">
-      <h2>What Clients Say</h2>
-      <div class="cards">
-        <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="100">
-          <p>"I had a broken hot water pipe and their team was rerouted immediately. They diagnosed it quickly, handled trench work, and stayed in communication throughout. Reliable and dependable."</p>
-          <h4>Sylvia F.</h4>
+      <div class="cinema-hero-stats">
+        <div class="cinema-stat">
+          <span class="num"><span data-counter="12" data-suffix="+">0</span></span>
+          <span class="label">Years On‑Site</span>
         </div>
-        <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="200">
-          <p>"Needed a water heater replaced and they came out the same day. The full replacement was done within hours and the quality was excellent."</p>
-          <h4>Ephraim V.</h4>
+        <div class="cinema-stat">
+          <span class="num"><span data-counter="450" data-suffix="+">0</span></span>
+          <span class="label">Projects Delivered</span>
         </div>
-        <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="300">
-          <p>"Professional, knowledgeable, and honest. They helped determine the issue without pushing unnecessary work and gave us exactly what we needed."</p>
-          <h4>Kaitlyn B.</h4>
+        <div class="cinema-stat">
+          <span class="num"><span data-counter="100" data-suffix="%">0</span></span>
+          <span class="label">Owner‑Led</span>
+        </div>
+        <div class="cinema-stat">
+          <span class="num"><span data-counter="24" data-suffix="hr">0</span></span>
+          <span class="label">Emergency Response</span>
         </div>
       </div>
-      <a href="https://www.google.com/maps/place/Innovative+Repairs/@34.1347315,-118.0255729,16.47z/data=!4m8!3m7!1s0x80c2d3e8ba0ad451:0xb373195e104b9ef2!8m2!3d34.1333512!4d-118.0278757!9m1!1b1!16s%2Fg%2F11n0c06b61?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
-        target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 1.5rem;">
-        <span>Read Google Reviews</span>
-      </a>
+
     </section>
 
-    <!-- Final CTA -->
-    <section id="contact" class="section contact" data-aos="zoom-in-up">
-      <h2>Let's Build Something Great</h2>
-      <p>Tell us about your project and we will send a clear plan, timeline, and quote.</p>
-      <a href="get-a-quote.html" class="btn btn-primary">
-        <span>Get in Touch</span>
+    <!-- ═══════════════════════════════════════════════════════════
+         TYPE MARQUEE
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Renovation <span class="star">✦</span></span>
+        <span class="marquee-item">Restoration <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Craftsmanship</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Construction <span class="star">✦</span></span>
+        <span class="marquee-item">Custom Builds <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Repair</em> <span class="star">✦</span></span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Renovation <span class="star">✦</span></span>
+        <span class="marquee-item">Restoration <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Craftsmanship</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Construction <span class="star">✦</span></span>
+        <span class="marquee-item">Custom Builds <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Repair</em> <span class="star">✦</span></span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CORE SERVICES
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">01 — Capabilities</span>
+        <h2>A studio for the full <em class="serif-italic">arc</em> of your project.</h2>
+        <p>Residential, commercial, and custom construction work — handled end‑to‑end by one trusted team you can reach directly.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card" data-reveal="up" data-reveal-delay="0">
+          <div class="service-card-head">
+            <span>Service</span>
+            <span class="num">01 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-hammer"></i></div>
+          <h3>Residential<br/>Renovations</h3>
+          <p>Kitchen and bath upgrades, additions, conversions, and full remodels — built for daily life and long‑term durability.</p>
+          <a href="services.html" class="arrow-link">Explore</a>
+        </article>
+
+        <article class="service-card" data-reveal="up" data-reveal-delay="120">
+          <div class="service-card-head">
+            <span>Service</span>
+            <span class="num">02 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-industry"></i></div>
+          <h3>Commercial<br/>Construction</h3>
+          <p>Efficient buildouts and improvements designed for functionality, code compliance, and clean finishes that hold up.</p>
+          <a href="services.html" class="arrow-link">Explore</a>
+        </article>
+
+        <article class="service-card" data-reveal="up" data-reveal-delay="240">
+          <div class="service-card-head">
+            <span>Service</span>
+            <span class="num">03 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Custom &<br/>Specialty Work</h3>
+          <p>Specialized projects tailored to your goals — from one‑off upgrades to complex multi‑phase scopes.</p>
+          <a href="services.html" class="arrow-link">Explore</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CREDENTIALS LOGO MARQUEE
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="logo-marquee" aria-label="Credentials and trades covered">
+      <div class="logo-marquee-track">
+        <span class="logo-marquee-item"><i class="fas fa-shield-halved"></i> Licensed &amp; Insured</span>
+        <span class="logo-marquee-item"><i class="fas fa-helmet-safety"></i> OSHA Compliant</span>
+        <span class="logo-marquee-item"><i class="fas fa-bolt"></i> Electrical</span>
+        <span class="logo-marquee-item"><i class="fas fa-droplet"></i> Plumbing</span>
+        <span class="logo-marquee-item"><i class="fas fa-tools"></i> Framing &amp; Carpentry</span>
+        <span class="logo-marquee-item"><i class="fas fa-paint-roller"></i> Paint &amp; Drywall</span>
+        <span class="logo-marquee-item"><i class="fas fa-mountain-sun"></i> Concrete &amp; Stucco</span>
+        <span class="logo-marquee-item"><i class="fas fa-temperature-arrow-up"></i> HVAC</span>
+        <!-- Duplicate -->
+        <span class="logo-marquee-item"><i class="fas fa-shield-halved"></i> Licensed &amp; Insured</span>
+        <span class="logo-marquee-item"><i class="fas fa-helmet-safety"></i> OSHA Compliant</span>
+        <span class="logo-marquee-item"><i class="fas fa-bolt"></i> Electrical</span>
+        <span class="logo-marquee-item"><i class="fas fa-droplet"></i> Plumbing</span>
+        <span class="logo-marquee-item"><i class="fas fa-tools"></i> Framing &amp; Carpentry</span>
+        <span class="logo-marquee-item"><i class="fas fa-paint-roller"></i> Paint &amp; Drywall</span>
+        <span class="logo-marquee-item"><i class="fas fa-mountain-sun"></i> Concrete &amp; Stucco</span>
+        <span class="logo-marquee-item"><i class="fas fa-temperature-arrow-up"></i> HVAC</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PORTFOLIO CAROUSEL
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">02 — Selected Work</span>
+        <h2>Recent <em class="serif-italic">projects</em>.</h2>
+        <p>A glimpse into the quality and range of work delivered across kitchens, baths, exteriors, and structural repairs.</p>
+      </div>
+
+      <div class="portfolio-carousel" data-reveal="fade">
+        <div class="portfolio-track">
+          <a href="assets/Edits-15.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Spacious Living Room and Kitchen">
+            <img src="assets/Edits-15.jpg" alt="Spacious living room and kitchen" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Interior · Arcadia</span>
+              <span class="title">Open‑Plan Living &amp; Kitchen</span>
+            </div>
+          </a>
+          <a href="assets/Edits-23.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Modern Wood Accent Bathroom">
+            <img src="assets/Edits-23.jpg" alt="Modern wood accent bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Bathroom · Pasadena</span>
+              <span class="title">Wood &amp; Stone Bathroom</span>
+            </div>
+          </a>
+          <a href="assets/Edits-34.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Bright White Bathroom">
+            <img src="assets/Edits-34.jpg" alt="Bright white bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Bathroom · Monrovia</span>
+              <span class="title">Bright White Bath Suite</span>
+            </div>
+          </a>
+          <a href="assets/Kitchen.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Contemporary Kitchen Remodel">
+            <img src="assets/Kitchen.jpeg" alt="Contemporary kitchen remodel" loading="lazy" decoding="async"  width="716" height="1098"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Kitchen · San Marino</span>
+              <span class="title">Contemporary Kitchen</span>
+            </div>
+          </a>
+          <a href="assets/Marble-Bathroom.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Luxurious Marble Bathroom">
+            <img src="assets/Marble-Bathroom.jpeg" alt="Luxurious marble bathroom" loading="lazy" decoding="async"  width="673" height="1168"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Bathroom · Sierra Madre</span>
+              <span class="title">Marble Bath Retreat</span>
+            </div>
+          </a>
+          <a href="assets/Fireplace.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Fireplace Renovation">
+            <img src="assets/Fireplace.jpeg" alt="Fireplace renovation" loading="lazy" decoding="async"  width="360" height="480"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Feature · Arcadia</span>
+              <span class="title">Sculpted Fireplace</span>
+            </div>
+          </a>
+          <a href="assets/IMG_1913.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Large Paver Patio at Sunset">
+            <img src="assets/IMG_1913.jpeg" alt="Large paver patio at sunset" loading="lazy" decoding="async"  width="3024" height="4032"/>
+            <div class="portfolio-slide-meta">
+              <span class="tag">Exterior · Temple City</span>
+              <span class="title">Paver Patio at Sunset</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" aria-label="Previous project">←</button>
+          <div class="progress" role="presentation"><div class="progress-bar"></div></div>
+          <button class="carousel-btn next" aria-label="Next project">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         IMAGE MARQUEE
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="image-marquee" aria-label="Project image marquee">
+      <div class="image-marquee-track">
+        <div class="image-marquee-item"><img src="assets/Edits-12.jpg" alt="Modern white living room" loading="lazy"  width="2880" height="1921"/></div>
+        <div class="image-marquee-item"><img src="assets/Glass-Bathroom.jpeg" alt="Modern glass bathroom" loading="lazy"  width="360" height="480"/></div>
+        <div class="image-marquee-item"><img src="assets/Kitchen2.jpeg" alt="Spacious kitchen" loading="lazy"  width="1115" height="1695"/></div>
+        <div class="image-marquee-item"><img src="assets/Grey-Bathroom.jpeg" alt="Stylish grey bathroom" loading="lazy"  width="360" height="480"/></div>
+        <div class="image-marquee-item"><img src="assets/IMG_5533.jpeg" alt="Two-tone paver patio" loading="lazy"  width="3024" height="4032"/></div>
+        <div class="image-marquee-item"><img src="assets/IMG_5410.jpeg" alt="Paver walkway with artificial turf" loading="lazy"  width="1963" height="2617"/></div>
+        <div class="image-marquee-item"><img src="assets/FullSizeRender.jpeg" alt="Herringbone paver patio" loading="lazy"  width="3024" height="4032"/></div>
+        <div class="image-marquee-item"><img src="assets/Truck.jpeg" alt="Innovative Repairs truck" loading="lazy"  width="4032" height="3024"/></div>
+        <!-- Duplicate -->
+        <div class="image-marquee-item"><img src="assets/Edits-12.jpg" alt="" loading="lazy"  width="2880" height="1921"/></div>
+        <div class="image-marquee-item"><img src="assets/Glass-Bathroom.jpeg" alt="" loading="lazy"  width="360" height="480"/></div>
+        <div class="image-marquee-item"><img src="assets/Kitchen2.jpeg" alt="" loading="lazy"  width="1115" height="1695"/></div>
+        <div class="image-marquee-item"><img src="assets/Grey-Bathroom.jpeg" alt="" loading="lazy"  width="360" height="480"/></div>
+        <div class="image-marquee-item"><img src="assets/IMG_5533.jpeg" alt="" loading="lazy"  width="3024" height="4032"/></div>
+        <div class="image-marquee-item"><img src="assets/IMG_5410.jpeg" alt="" loading="lazy"  width="1963" height="2617"/></div>
+        <div class="image-marquee-item"><img src="assets/FullSizeRender.jpeg" alt="" loading="lazy"  width="3024" height="4032"/></div>
+        <div class="image-marquee-item"><img src="assets/Truck.jpeg" alt="" loading="lazy"  width="4032" height="3024"/></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PROCESS
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">04 — How We Work</span>
+        <h2>A clean, predictable <em class="serif-italic">process</em>.</h2>
+        <p>You always know what's happening, what's next, and what it costs. No fog, no surprises.</p>
+      </div>
+
+      <div class="process-list">
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">01</div>
+          <div class="step-title">Walkthrough &amp; Scoping</div>
+          <div class="step-desc">We visit the site, listen carefully, and map out exactly what the project requires — including hidden conditions and trade dependencies.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">02</div>
+          <div class="step-title">Quote &amp; Timeline</div>
+          <div class="step-desc">A clear, line‑by‑line quote with realistic dates. No padded numbers, no vague allowances. You see what you're paying for.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">03</div>
+          <div class="step-title">Disciplined Execution</div>
+          <div class="step-desc">Owner‑led crews, daily updates, and quality checks at every milestone. We protect your home like it's ours.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">04</div>
+          <div class="step-title">Walk &amp; Warranty</div>
+          <div class="step-desc">Final walkthrough, punch list, written warranty. We stay reachable long after the last invoice.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TESTIMONIALS — Carousel
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">05 — Word of Mouth</span>
+        <h2>What clients <em class="serif-italic">say</em>.</h2>
+      </div>
+
+      <div class="testimonial-carousel" data-reveal="fade">
+        <div class="testimonial-track">
+          <article class="testimonial-slide is-active">
+            <blockquote class="testimonial-quote">I had a broken hot water pipe and their team rerouted it immediately. They diagnosed it quickly, handled the trench work, and stayed in communication throughout. Reliable and dependable.</blockquote>
+            <div class="testimonial-author">
+              <span class="author-mark">S</span>
+              <span>Sylvia F. · Arcadia</span>
+            </div>
+          </article>
+          <article class="testimonial-slide">
+            <blockquote class="testimonial-quote">Needed a water heater replaced and they came out the same day. The full replacement was done within hours and the quality was excellent.</blockquote>
+            <div class="testimonial-author">
+              <span class="author-mark">E</span>
+              <span>Ephraim V. · Pasadena</span>
+            </div>
+          </article>
+          <article class="testimonial-slide">
+            <blockquote class="testimonial-quote">Professional, knowledgeable, and honest. They helped determine the issue without pushing unnecessary work and gave us exactly what we needed.</blockquote>
+            <div class="testimonial-author">
+              <span class="author-mark">K</span>
+              <span>Kaitlyn B. · Monrovia</span>
+            </div>
+          </article>
+        </div>
+        <div class="testimonial-controls" role="tablist"></div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="https://www.google.com/maps/place/Innovative+Repairs/@34.1347315,-118.0255729,16.47z/data=!4m8!3m7!1s0x80c2d3e8ba0ad451:0xb373195e104b9ef2!8m2!3d34.1333512!4d-118.0278757!9m1!1b1!16s%2Fg%2F11n0c06b61?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic>
+          <span>Read Google Reviews</span>
+          <span class="arrow"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FINAL CTA
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="section center" data-reveal="zoom">
+      <span class="section-index" style="margin-bottom: 1.5rem; display: inline-flex;">06 — Let's Build</span>
+      <h2 style="font-size: clamp(2.4rem, 6vw, 5rem); max-width: 18ch; margin: 0 auto 1.2rem;">Tell us what you're <em class="serif-italic">building</em>.</h2>
+      <p style="max-width: 50ch; margin: 0 auto 2.5rem;">Send us the rough scope and we'll come back with a clear plan, timeline, and quote — no pressure.</p>
+      <a href="get-a-quote.html" class="btn btn-primary" data-magnetic>
+        <span>Start a Project</span>
+        <span class="arrow"></span>
       </a>
     </section>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.</p>
-      <div>
-        <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+    <h3 class="footer-big">Innovative<br/><em class="serif-italic">Repairs.</em></h3>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>The Studio</h4>
+        <p>Family‑owned construction and renovation studio based in Arcadia, serving Southern California with disciplined craft and direct communication.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15622712474">(562) 271‑2474</a></li>
+          <li><a href="mailto:innovativeimprovementsla@gmail.com">Email Us</a></li>
+          <li><a href="get-a-quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> Innovative Repairs · Arcadia, CA</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/getinnovativerepairs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>

@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about Innovative Repairs, our mission, and the standards that guide every project." />
-  <title>About Us | Innovative Repairs</title>
+  <meta name="description" content="The studio behind Innovative Repairs — craftsmanship, accountability, and the standards that guide every project." />
+  <title>The Studio — Innovative Repairs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -20,16 +21,20 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" decoding="async" fetchpriority="high" />
+          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <span class="logo-mark">
+            <span class="word-1">Innovative</span>
+            <span class="word-2">Repairs · Est. SoCal</span>
+          </span>
         </a>
       </div>
       <div class="nav-wrapper">
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" data-navid="home">Home</a></li>
-          <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+          <li><a href="about-us.html" data-navid="about-us">Studio</a></li>
           <li><a href="services.html" data-navid="services">Services</a></li>
-          <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
-          <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+          <li><a href="gallery.html" data-navid="gallery">Work</a></li>
+          <li><a href="get-a-quote.html" class="nav-cta" data-navid="get-a-quote">Start a Project</a></li>
         </ul>
       </div>
       <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
@@ -39,84 +44,167 @@
   </header>
 
   <main>
-    <!-- Company Introduction -->
-    <section class="section about-intro" data-aos="zoom-in-up">
-      <h2 data-aos="fade-down" data-aos-delay="100">Craftsmanship Backed by Accountability</h2>
-      <p data-aos="fade-up" data-aos-delay="200">
-        Innovative Repairs was founded by Anthony Aguilera with one goal: raise the standard for reliable construction and renovation work in Southern California. We are a family-owned team focused on disciplined project execution, quality materials, and clean communication from first call to final walkthrough.
-      </p>
-      <p data-aos="fade-up" data-aos-delay="250">
-        Every project reflects the same operating principles: precision in the details, honest timelines, transparent pricing, and durable results. Our growth has come through repeat business and referrals, and we treat that trust as the foundation of the company.
-      </p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-video-wrapper">
+        <img src="assets/Truck.jpeg" alt="Innovative Repairs on site" loading="eager"  width="4032" height="3024"/>
+      </div>
+      <div class="hero-content" data-reveal="up">
+        <span class="eyebrow">The Studio</span>
+        <h1>Craftsmanship backed by <em class="serif-italic">accountability</em>.</h1>
+        <p>A family‑owned construction studio raising the standard for reliable renovation and repair work across Southern California.</p>
+      </div>
     </section>
 
-    <!-- Our Commitment -->
-    <section class="section" data-aos="fade-right">
-      <h2 data-aos="fade-down" data-aos-delay="100">Our Commitment</h2>
-      <p data-aos="fade-up" data-aos-delay="200">These standards guide every quote, every crew, and every completed project.</p>
-      <div class="cards">
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="250">
-          <i class="fas fa-ruler-combined"></i>
-          <h3>Quality Craftsmanship</h3>
-          <p>We prioritize long-term durability, clean finishing, and technical accuracy at every stage of the build.</p>
+    <!-- Marquee -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Family‑Owned <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Owner‑Led</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Detail‑Obsessed <span class="star">✦</span></span>
+        <span class="marquee-item">Honest Timelines <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Built to Last</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Family‑Owned <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Owner‑Led</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Detail‑Obsessed <span class="star">✦</span></span>
+        <span class="marquee-item">Honest Timelines <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Built to Last</em> <span class="star">✦</span></span>
+      </div>
+    </section>
+
+    <!-- Two-column origin story -->
+    <section class="section">
+      <div class="two-col">
+        <div class="col-text" data-reveal="right">
+          <span class="section-index">A — Origin</span>
+          <h2>Founded by Anthony Aguilera with one <em class="serif-italic">stubborn</em> goal.</h2>
+          <p>Raise the standard for reliable construction and renovation in Southern California — and never trade quality for shortcuts. We're a family‑owned team focused on disciplined execution, premium materials, and clean communication from first call to final walkthrough.</p>
+          <p>Every project reflects the same operating principles: precision in the details, honest timelines, transparent pricing, and durable results. Our growth comes through repeat business and referrals — and we treat that trust as the foundation of the company.</p>
         </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-          <i class="fas fa-comments"></i>
-          <h3>Clear Communication</h3>
-          <p>You receive direct updates, realistic timelines, and complete visibility into scope and decisions.</p>
+        <div class="col-image" data-reveal="left">
+          <img src="assets/Edits-15.jpg" alt="A finished interior project" loading="lazy"  width="2880" height="1921"/>
+          <div class="col-image-overlay">
+            <span>Recent Build</span>
+            <span>Arcadia, CA</span>
+          </div>
         </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="350">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Reliable Delivery</h3>
+      </div>
+    </section>
+
+    <!-- Commitments -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">B — Our Commitments</span>
+        <h2>Standards that guide every quote, crew, and completed <em class="serif-italic">project</em>.</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card" data-reveal="up" data-reveal-delay="0">
+          <div class="service-card-head">
+            <span>Commitment</span>
+            <span class="num">01 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-ruler-combined"></i></div>
+          <h3>Quality<br/>Craftsmanship</h3>
+          <p>Long‑term durability, clean finishing, and technical accuracy at every stage of the build — from rough framing to final paint.</p>
+        </article>
+        <article class="service-card" data-reveal="up" data-reveal-delay="120">
+          <div class="service-card-head">
+            <span>Commitment</span>
+            <span class="num">02 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-comments"></i></div>
+          <h3>Clear<br/>Communication</h3>
+          <p>Direct updates, realistic timelines, and complete visibility into scope and decisions — so you're never guessing.</p>
+        </article>
+        <article class="service-card" data-reveal="up" data-reveal-delay="240">
+          <div class="service-card-head">
+            <span>Commitment</span>
+            <span class="num">03 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Reliable<br/>Delivery</h3>
           <p>We show up, follow through, and hold the line on quality from demolition through final completion.</p>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- Vision & Mission -->
-    <section class="section" data-aos="zoom-in-up">
-      <h2 data-aos="fade-down" data-aos-delay="100">Vision and Mission</h2>
-      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-          <i class="fas fa-eye"></i>
-          <h3>Our Vision</h3>
-          <p>To be the most trusted renovation and repair partner in California for homeowners and businesses that demand dependable quality.</p>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="250">
-          <i class="fas fa-bullseye"></i>
-          <h3>Our Mission</h3>
-          <p>Deliver expert construction services with transparent processes, skilled execution, and a consistent client-first experience.</p>
-        </div>
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">C — Direction</span>
+        <h2>Vision &amp; <em class="serif-italic">mission</em>.</h2>
+      </div>
+
+      <div class="service-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <article class="service-card" data-reveal="up" data-reveal-delay="0">
+          <div class="service-card-head">
+            <span>The Vision</span>
+            <span class="num">→</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-eye"></i></div>
+          <h3>Most Trusted in California</h3>
+          <p>To be the most trusted renovation and repair partner in California for homeowners and businesses that demand dependable quality, honest pricing, and an end product that lasts.</p>
+        </article>
+        <article class="service-card" data-reveal="up" data-reveal-delay="120">
+          <div class="service-card-head">
+            <span>The Mission</span>
+            <span class="num">→</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Expert Service, Transparent Process</h3>
+          <p>Deliver expert construction services with transparent processes, skilled execution, and a consistent client‑first experience — every project, every time.</p>
+        </article>
       </div>
     </section>
 
     <!-- Future Goals -->
-    <section class="section future-goals" data-aos="fade-up">
-      <h2 data-aos="fade-down" data-aos-delay="100">What's Next</h2>
-      <p data-aos="fade-up" data-aos-delay="200">
-        We are expanding our service capacity across California while preserving the quality control and personalized support that built our reputation.
-      </p>
+    <section class="section center">
+      <span class="section-index" style="margin-bottom: 1.5rem; display: inline-flex;">D — What's Next</span>
+      <h2 data-reveal="up" style="font-size: clamp(2rem, 5vw, 4rem); max-width: 22ch; margin: 0 auto 1.2rem;">Expanding capacity. Preserving the <em class="serif-italic">handshake</em>.</h2>
+      <p data-reveal="up" data-reveal-delay="120" style="max-width: 56ch; margin: 0 auto;">We're growing service capacity across California while preserving the quality control and personalized support that built our reputation. The crews scale — the standards don't.</p>
     </section>
 
     <!-- CTA -->
-    <section class="section call-to-action-about" data-aos="zoom-in-up">
-      <h2 data-aos="fade-up" data-aos-delay="100">Build With a Team You Can Trust</h2>
-      <p data-aos="fade-up" data-aos-delay="200">
-        Planning a renovation or repair? We are ready to scope your project and provide a clear next step.
-      </p>
-      <a href="get-a-quote.html" class="btn btn-primary" data-aos="zoom-in-up" data-aos-delay="260">
+    <section class="section center" data-reveal="zoom">
+      <h2 style="font-size: clamp(2.4rem, 6vw, 5rem); max-width: 18ch; margin: 0 auto 1.2rem;">Build with a team you can <em class="serif-italic">trust</em>.</h2>
+      <p style="max-width: 50ch; margin: 0 auto 2.5rem;">Planning a renovation or repair? We're ready to scope your project and provide a clear next step.</p>
+      <a href="get-a-quote.html" class="btn btn-primary" data-magnetic>
         <span>Contact Us</span>
+        <span class="arrow"></span>
       </a>
     </section>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.</p>
-      <div>
-        <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+    <h3 class="footer-big">Innovative<br/><em class="serif-italic">Repairs.</em></h3>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>The Studio</h4>
+        <p>Family‑owned construction and renovation studio based in Arcadia, serving Southern California with disciplined craft and direct communication.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15622712474">(562) 271‑2474</a></li>
+          <li><a href="mailto:innovativeimprovementsla@gmail.com">Email Us</a></li>
+          <li><a href="get-a-quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> Innovative Repairs · Arcadia, CA</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/getinnovativerepairs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>

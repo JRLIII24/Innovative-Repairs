@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Request a free quote from Innovative Repairs for your next construction, renovation, or repair project." />
-  <title>Get a Quote | Innovative Repairs</title>
+  <title>Start a Project — Innovative Repairs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -20,16 +21,20 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" decoding="async" fetchpriority="high" />
+          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <span class="logo-mark">
+            <span class="word-1">Innovative</span>
+            <span class="word-2">Repairs · Est. SoCal</span>
+          </span>
         </a>
       </div>
       <div class="nav-wrapper">
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" data-navid="home">Home</a></li>
-          <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+          <li><a href="about-us.html" data-navid="about-us">Studio</a></li>
           <li><a href="services.html" data-navid="services">Services</a></li>
-          <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
-          <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+          <li><a href="gallery.html" data-navid="gallery">Work</a></li>
+          <li><a href="get-a-quote.html" class="nav-cta" data-navid="get-a-quote">Start a Project</a></li>
         </ul>
       </div>
       <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
@@ -39,52 +44,137 @@
   </header>
 
   <main>
-    <!-- Quote Form -->
-    <section id="quote" class="section contact" data-aos="fade-up">
-      <h2>Request Your Free Quote</h2>
-      <p>Fill out the form below to get started with your project. We'll get back to you promptly to discuss your needs.</p>
-      <iframe src="https://innovativerepairs.dripjobs.com/appointmentrequests" title="Appointment Request Form" loading="lazy"></iframe>
-    </section>
+    <!-- Quote Section -->
+    <section id="quote" class="section">
+      <div class="quote-layout">
+        <aside class="quote-info" data-reveal="up">
+          <span class="section-index">Start Here</span>
+          <h2>Request your free <em class="serif-italic">quote</em>.</h2>
+          <p>Fill out the form and we'll come back with a clear plan, timeline, and a fair number — usually within one business day.</p>
 
-    <!-- Why Choose Us -->
-    <section class="section" data-aos="fade-right">
-      <h2>Why Choose Innovative Repairs?</h2>
-      <div class="cards">
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-          <i class="fas fa-clipboard-check"></i>
-          <h3>Transparent Quoting</h3>
-          <p>We provide detailed, easy-to-understand quotes with no hidden fees. Honesty and clarity are core to our process.</p>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
-          <i class="fas fa-handshake"></i>
-          <h3>Personalized Consultation</h3>
-          <p>Your project is unique. We take the time to understand your vision and provide tailored solutions.</p>
-        </div>
-        <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
-          <i class="fas fa-award"></i>
-          <h3>Commitment to Quality</h3>
-          <p>We deliver excellence in every project — from the initial call to the final nail. Let us bring your vision to life.</p>
+          <div class="quote-info-list">
+            <div class="row">
+              <span class="key">Phone</span>
+              <span class="val"><a href="tel:+15622712474">(562) 271‑2474</a></span>
+            </div>
+            <div class="row">
+              <span class="key">Email</span>
+              <span class="val"><a href="mailto:innovativeimprovementsla@gmail.com">Send</a></span>
+            </div>
+            <div class="row">
+              <span class="key">Service Area</span>
+              <span class="val">SoCal</span>
+            </div>
+            <div class="row">
+              <span class="key">Response</span>
+              <span class="val">≤ 24 hr</span>
+            </div>
+          </div>
+        </aside>
+
+        <div data-reveal="up" data-reveal-delay="120">
+          <iframe src="https://innovativerepairs.dripjobs.com/appointmentrequests" title="Appointment Request Form" loading="lazy"></iframe>
         </div>
       </div>
     </section>
 
+    <!-- Logo Marquee -->
+    <section class="logo-marquee" aria-label="Why us">
+      <div class="logo-marquee-track">
+        <span class="logo-marquee-item"><i class="fas fa-clipboard-check"></i> Transparent Quoting</span>
+        <span class="logo-marquee-item"><i class="fas fa-handshake"></i> Personalized Consultation</span>
+        <span class="logo-marquee-item"><i class="fas fa-award"></i> Quality Guarantee</span>
+        <span class="logo-marquee-item"><i class="fas fa-shield-halved"></i> Licensed &amp; Insured</span>
+        <span class="logo-marquee-item"><i class="fas fa-clock"></i> 24‑Hour Response</span>
+        <span class="logo-marquee-item"><i class="fas fa-user-tie"></i> Owner‑Led</span>
+        <!-- duplicate -->
+        <span class="logo-marquee-item"><i class="fas fa-clipboard-check"></i> Transparent Quoting</span>
+        <span class="logo-marquee-item"><i class="fas fa-handshake"></i> Personalized Consultation</span>
+        <span class="logo-marquee-item"><i class="fas fa-award"></i> Quality Guarantee</span>
+        <span class="logo-marquee-item"><i class="fas fa-shield-halved"></i> Licensed &amp; Insured</span>
+        <span class="logo-marquee-item"><i class="fas fa-clock"></i> 24‑Hour Response</span>
+        <span class="logo-marquee-item"><i class="fas fa-user-tie"></i> Owner‑Led</span>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">Why Innovative</span>
+        <h2>What you can <em class="serif-italic">expect</em>.</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card" data-reveal="up" data-reveal-delay="0">
+          <div class="service-card-head">
+            <span>Promise</span>
+            <span class="num">01 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Transparent<br/>Quoting</h3>
+          <p>Detailed, easy‑to‑understand quotes with no hidden fees. Honesty and clarity are core to our process.</p>
+        </article>
+        <article class="service-card" data-reveal="up" data-reveal-delay="120">
+          <div class="service-card-head">
+            <span>Promise</span>
+            <span class="num">02 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Personalized<br/>Consultation</h3>
+          <p>Your project is unique. We take the time to understand your vision and provide tailored solutions.</p>
+        </article>
+        <article class="service-card" data-reveal="up" data-reveal-delay="240">
+          <div class="service-card-head">
+            <span>Promise</span>
+            <span class="num">03 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-award"></i></div>
+          <h3>Commitment<br/>to Quality</h3>
+          <p>Excellence in every project — from the initial call to the final nail. We bring your vision to life and stand behind it.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- Need Help -->
-    <section class="section need-help" data-aos="zoom-in-up">
-      <h2>Need Help Deciding or Have Questions?</h2>
-      <p>Our team is here to walk you through every step. Reach out with your ideas, questions, or concerns, and we'll handle the rest.</p>
-      <p style="margin-top: 1.5rem; font-size: 1.15rem;">
-        Call us directly at: <a href="tel:+15622712474" style="font-weight: 700; color: var(--text);">(562) 271-2474</a>
-      </p>
+    <section class="section center" data-reveal="zoom">
+      <h2 style="font-size: clamp(2.4rem, 6vw, 5rem); max-width: 22ch; margin: 0 auto 1.2rem;">Have a question? <em class="serif-italic">Call us.</em></h2>
+      <p style="max-width: 56ch; margin: 0 auto 2.5rem;">Our team is here to walk you through every step. Reach out with your ideas, questions, or concerns — and we'll handle the rest.</p>
+      <a href="tel:+15622712474" class="btn btn-primary" data-magnetic>
+        <span>(562) 271‑2474</span>
+        <span class="arrow"></span>
+      </a>
     </section>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.</p>
-      <div>
-        <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+    <h3 class="footer-big">Innovative<br/><em class="serif-italic">Repairs.</em></h3>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>The Studio</h4>
+        <p>Family‑owned construction and renovation studio based in Arcadia, serving Southern California with disciplined craft and direct communication.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15622712474">(562) 271‑2474</a></li>
+          <li><a href="mailto:innovativeimprovementsla@gmail.com">Email Us</a></li>
+          <li><a href="get-a-quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> Innovative Repairs · Arcadia, CA</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/getinnovativerepairs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>

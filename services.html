@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore residential, commercial, and custom construction services from Innovative Repairs." />
-  <title>Services | Innovative Repairs</title>
+  <meta name="description" content="Residential, commercial, and custom construction services from Innovative Repairs — full trade coverage, owner-led delivery." />
+  <title>Services — Innovative Repairs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -20,16 +21,20 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs Logo" decoding="async" fetchpriority="high" />
+          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <span class="logo-mark">
+            <span class="word-1">Innovative</span>
+            <span class="word-2">Repairs · Est. SoCal</span>
+          </span>
         </a>
       </div>
       <div class="nav-wrapper">
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" data-navid="home">Home</a></li>
-          <li><a href="about-us.html" data-navid="about-us">About Us</a></li>
+          <li><a href="about-us.html" data-navid="about-us">Studio</a></li>
           <li><a href="services.html" data-navid="services">Services</a></li>
-          <li><a href="gallery.html" data-navid="gallery">Gallery</a></li>
-          <li><a href="get-a-quote.html" data-navid="get-a-quote">Get a Quote</a></li>
+          <li><a href="gallery.html" data-navid="gallery">Work</a></li>
+          <li><a href="get-a-quote.html" class="nav-cta" data-navid="get-a-quote">Start a Project</a></li>
         </ul>
       </div>
       <button id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
@@ -40,70 +45,206 @@
 
   <main>
     <!-- Hero -->
-    <section class="hero" data-aos="fade-up">
+    <section class="hero">
       <div class="hero-video-wrapper">
         <video autoplay muted loop playsinline preload="none" poster="assets/Our-Services.jpeg" id="serviceHeroVideo">
           <source src="assets/precision-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div class="hero-content">
-        <h1>Exceptional Craftsmanship Across Every Scope</h1>
-        <p>From structural upgrades to finish work, we deliver high-standard construction and repair services with dependable execution.</p>
+      <div class="hero-content" data-reveal="up">
+        <span class="eyebrow">Capabilities</span>
+        <h1>Exceptional craftsmanship across every <em class="serif-italic">scope</em>.</h1>
+        <p>From structural upgrades to finish work, we deliver high‑standard construction and repair services with dependable, owner‑led execution.</p>
       </div>
     </section>
 
-    <!-- Services Detail -->
-    <section id="services-detailed" class="section two-column" data-aos="fade-right">
-      <div class="two-column-content">
-        <div class="cards">
-          <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
-            <i class="fas fa-home-lg-alt"></i>
-            <h3>Residential Renovations</h3>
-            <p>Major remodels, additions, and critical repairs designed for comfort, function, and long-term value.</p>
-          </div>
-          <div class="card" data-aos="zoom-in-up" data-aos-delay="180">
-            <i class="fas fa-building"></i>
-            <h3>Commercial Construction</h3>
-            <p>Professional upgrades and buildouts delivered on schedule with clean coordination and quality control.</p>
-          </div>
-          <div class="card" data-aos="zoom-in-up" data-aos-delay="260">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>Custom Projects</h3>
-            <p>Specialized solutions for unique layouts, one-off requirements, and complex project objectives.</p>
-          </div>
-        </div>
-        <div class="text">
-          <h2>Complete Trade Coverage</h2>
-          <p>Our team handles framing, insulation, drywall, paint, roofing, concrete, tile, stucco, plumbing, electrical, windows, doors, and finish carpentry. We manage projects end-to-end with clear standards and consistent communication so you can move forward with confidence.</p>
-        </div>
+    <!-- Marquee of trades -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Framing <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Drywall</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Tile <span class="star">✦</span></span>
+        <span class="marquee-item">Stucco <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Roofing</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Concrete <span class="star">✦</span></span>
+        <span class="marquee-item">Plumbing <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Electrical</em> <span class="star">✦</span></span>
+        <!-- duplicate -->
+        <span class="marquee-item">Framing <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Drywall</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Tile <span class="star">✦</span></span>
+        <span class="marquee-item">Stucco <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Roofing</em> <span class="star">✦</span></span>
+        <span class="marquee-item">Concrete <span class="star">✦</span></span>
+        <span class="marquee-item">Plumbing <span class="star">✦</span></span>
+        <span class="marquee-item"><em>Electrical</em> <span class="star">✦</span></span>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="section two-column" data-aos="zoom-in-up">
-      <div class="two-column-content">
-        <div class="text">
-          <h2>Why Clients Choose Innovative Repairs</h2>
-          <p>We combine craftsmanship with reliable process: clear scope, transparent pricing, disciplined field work, and direct owner-level accountability throughout the project lifecycle.</p>
+    <!-- Service categories -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">01 — Categories</span>
+        <h2>Three <em class="serif-italic">disciplines</em>. One studio.</h2>
+        <p>Whether it's a kitchen remodel, a commercial buildout, or a unique custom scope, the same disciplined process applies.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card" data-reveal="up" data-reveal-delay="0">
+          <div class="service-card-head">
+            <span>Category</span>
+            <span class="num">01 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-house-chimney"></i></div>
+          <h3>Residential<br/>Renovations</h3>
+          <p>Major remodels, additions, kitchens, baths, and critical repairs designed for comfort, function, and long‑term value.</p>
+          <a href="get-a-quote.html" class="arrow-link">Discuss your project</a>
+        </article>
+
+        <article class="service-card" data-reveal="up" data-reveal-delay="120">
+          <div class="service-card-head">
+            <span>Category</span>
+            <span class="num">02 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-building"></i></div>
+          <h3>Commercial<br/>Construction</h3>
+          <p>Professional upgrades and buildouts delivered on schedule with clean coordination, code compliance, and quality control.</p>
+          <a href="get-a-quote.html" class="arrow-link">Discuss your project</a>
+        </article>
+
+        <article class="service-card" data-reveal="up" data-reveal-delay="240">
+          <div class="service-card-head">
+            <span>Category</span>
+            <span class="num">03 / 03</span>
+          </div>
+          <div class="service-card-icon"><i class="fas fa-compass-drafting"></i></div>
+          <h3>Custom<br/>Projects</h3>
+          <p>Specialized solutions for unique layouts, one‑off requirements, and complex multi‑phase project objectives.</p>
+          <a href="get-a-quote.html" class="arrow-link">Discuss your project</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Trade coverage two-column -->
+    <section class="section">
+      <div class="two-col">
+        <div class="col-image" data-reveal="right">
+          <img src="assets/Our-Services.jpeg" alt="Innovative Repairs team on site" loading="lazy"  width="1320" height="1333"/>
+        </div>
+        <div class="col-text" data-reveal="left">
+          <span class="section-index">02 — Trade Coverage</span>
+          <h2>Complete trade coverage, one accountable <em class="serif-italic">team</em>.</h2>
+          <p>Our crews handle framing, insulation, drywall, paint, roofing, concrete, tile, stucco, plumbing, electrical, windows, doors, and finish carpentry. We manage projects end‑to‑end with clear standards and consistent communication so you can move forward with confidence.</p>
           <p>For questions, email <a href="mailto:innovativeimprovementsla@gmail.com">innovativeimprovementsla@gmail.com</a>.</p>
-          <a href="get-a-quote.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="100">
-            <span>Discuss Your Project</span>
-          </a>
-        </div>
-        <div class="image">
-          <img src="assets/Our-Services.jpeg" alt="Innovative Repairs team collaboration on-site" loading="lazy" decoding="async" />
+          <div style="margin-top: 1rem;">
+            <a href="get-a-quote.html" class="btn btn-primary" data-magnetic>
+              <span>Discuss Your Project</span>
+              <span class="arrow"></span>
+            </a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Trades grid (logo marquee) -->
+    <section class="logo-marquee" aria-label="Trade coverage">
+      <div class="logo-marquee-track">
+        <span class="logo-marquee-item"><i class="fas fa-hammer"></i> Framing</span>
+        <span class="logo-marquee-item"><i class="fas fa-trowel"></i> Drywall</span>
+        <span class="logo-marquee-item"><i class="fas fa-paint-roller"></i> Paint</span>
+        <span class="logo-marquee-item"><i class="fas fa-house-chimney"></i> Roofing</span>
+        <span class="logo-marquee-item"><i class="fas fa-bolt"></i> Electrical</span>
+        <span class="logo-marquee-item"><i class="fas fa-droplet"></i> Plumbing</span>
+        <span class="logo-marquee-item"><i class="fas fa-cube"></i> Tile</span>
+        <span class="logo-marquee-item"><i class="fas fa-mountain"></i> Stucco</span>
+        <span class="logo-marquee-item"><i class="fas fa-door-open"></i> Doors &amp; Windows</span>
+        <span class="logo-marquee-item"><i class="fas fa-wind"></i> HVAC</span>
+        <!-- duplicate -->
+        <span class="logo-marquee-item"><i class="fas fa-hammer"></i> Framing</span>
+        <span class="logo-marquee-item"><i class="fas fa-trowel"></i> Drywall</span>
+        <span class="logo-marquee-item"><i class="fas fa-paint-roller"></i> Paint</span>
+        <span class="logo-marquee-item"><i class="fas fa-house-chimney"></i> Roofing</span>
+        <span class="logo-marquee-item"><i class="fas fa-bolt"></i> Electrical</span>
+        <span class="logo-marquee-item"><i class="fas fa-droplet"></i> Plumbing</span>
+        <span class="logo-marquee-item"><i class="fas fa-cube"></i> Tile</span>
+        <span class="logo-marquee-item"><i class="fas fa-mountain"></i> Stucco</span>
+        <span class="logo-marquee-item"><i class="fas fa-door-open"></i> Doors &amp; Windows</span>
+        <span class="logo-marquee-item"><i class="fas fa-wind"></i> HVAC</span>
+      </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="section">
+      <div class="section-head" data-reveal="up">
+        <span class="section-index">03 — Why Innovative</span>
+        <h2>Craftsmanship + reliable <em class="serif-italic">process</em>.</h2>
+        <p>Clear scope, transparent pricing, disciplined field work, and direct owner‑level accountability throughout the project lifecycle.</p>
+      </div>
+
+      <div class="process-list">
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">A</div>
+          <div class="step-title">Owner‑Led from Day One</div>
+          <div class="step-desc">You work with the people responsible for the result — not a chain of detached coordinators.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">B</div>
+          <div class="step-title">Transparent Quoting</div>
+          <div class="step-desc">Line‑by‑line numbers. No vague allowances. You know exactly what you're paying for.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">C</div>
+          <div class="step-title">Disciplined Field Work</div>
+          <div class="step-desc">Tidy sites, daily updates, photographic progress, and quality checks at every milestone.</div>
+        </div>
+        <div class="process-step" data-reveal="up">
+          <div class="step-num">D</div>
+          <div class="step-title">Written Warranty</div>
+          <div class="step-desc">We stand behind the work in writing — and stay reachable long after the last invoice clears.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section center" data-reveal="zoom">
+      <h2 style="font-size: clamp(2.4rem, 6vw, 5rem); max-width: 18ch; margin: 0 auto 1.2rem;">Ready to <em class="serif-italic">build</em>?</h2>
+      <p style="max-width: 50ch; margin: 0 auto 2.5rem;">Send us your scope. We'll come back with a clear plan and a fair number.</p>
+      <a href="get-a-quote.html" class="btn btn-primary" data-magnetic>
+        <span>Start a Project</span>
+        <span class="arrow"></span>
+      </a>
     </section>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="currentYear"></span> Innovative Repairs. All rights reserved. Arcadia, California.</p>
-      <div>
-        <a href="https://www.instagram.com/getinnovativerepairs/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+    <h3 class="footer-big">Innovative<br/><em class="serif-italic">Repairs.</em></h3>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>The Studio</h4>
+        <p>Family‑owned construction and renovation studio based in Arcadia, serving Southern California with disciplined craft and direct communication.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15622712474">(562) 271‑2474</a></li>
+          <li><a href="mailto:innovativeimprovementsla@gmail.com">Email Us</a></li>
+          <li><a href="get-a-quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> Innovative Repairs · Arcadia, CA</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/getinnovativerepairs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>
