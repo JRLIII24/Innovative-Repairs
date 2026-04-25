@@ -356,11 +356,13 @@ function initTestimonialCarousel() {
     active = (i + slides.length) % slides.length;
     slides.forEach((s, idx) => s.classList.toggle("is-active", idx === active));
     dots.forEach((d, idx) => d.classList.toggle("is-active", idx === active));
-    // Move the track horizontally only — never trigger the document scroll.
+    // The track has overflow:hidden so scrollTo is a no-op — translate it
+    // instead. Local move only, never affects document scroll.
     if (track) {
       const target = slides[active];
       const offset = target.offsetLeft - track.offsetLeft;
-      track.scrollTo({ left: offset, behavior: "smooth" });
+      track.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+      track.style.transform = `translateX(${-offset}px)`;
     }
     if (manual) {
       clearInterval(timer);

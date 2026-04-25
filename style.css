@@ -711,8 +711,8 @@ footer {
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
 @keyframes scroll-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 .marquee-item {
@@ -784,6 +784,7 @@ footer {
   gap: 4rem;
   width: max-content;
   animation: scroll-x 28s linear infinite;
+  will-change: transform;
 }
 
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
@@ -1231,6 +1232,7 @@ footer {
   gap: 1rem;
   width: max-content;
   animation: scroll-x 50s linear infinite;
+  will-change: transform;
 }
 
 .image-marquee:hover .image-marquee-track { animation-play-state: paused; }
