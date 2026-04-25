@@ -984,8 +984,6 @@ footer {
 
 .portfolio-carousel {
   position: relative;
-  margin: 0 calc(-1 * var(--section-padding));
-  padding: 0 var(--section-padding);
   overflow: hidden;
 }
 
@@ -1112,8 +1110,6 @@ footer {
 
 .reviews-carousel {
   position: relative;
-  margin: 0 calc(-1 * var(--section-padding));
-  padding: 0 var(--section-padding);
   overflow: hidden;
 }
 
