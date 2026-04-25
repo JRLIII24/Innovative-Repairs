@@ -206,9 +206,9 @@ function initPortfolioCarousel() {
 
   const track = carousel.querySelector(".portfolio-track");
   const slides = Array.from(track.querySelectorAll(".portfolio-slide"));
-  const prevBtn = document.querySelector(".carousel-btn.prev");
-  const nextBtn = document.querySelector(".carousel-btn.next");
-  const progressBar = document.querySelector(".carousel-controls .progress-bar");
+  const prevBtn = carousel.querySelector(".carousel-btn.prev");
+  const nextBtn = carousel.querySelector(".carousel-btn.next");
+  const progressBar = carousel.querySelector(".carousel-controls .progress-bar");
   if (!track || !slides.length) return;
 
   let index = 0;
@@ -325,44 +325,50 @@ function initPortfolioCarousel() {
   updatePosition();
 }
 
-/* ── Testimonial carousel — manual prev/next arrows ──────────── */
+/* ── Reviews carousel — same engine as Recent Projects ─────────── */
 
-function initTestimonialCarousel() {
-  const wrap = document.querySelector(".testimonial-carousel");
-  if (!wrap) return;
+function initReviewsCarousel() {
+  const carousel = document.querySelector(".reviews-carousel");
+  if (!carousel) return;
 
-  const slides = Array.from(wrap.querySelectorAll(".testimonial-slide"));
-  if (!slides.length) return;
+  const track = carousel.querySelector(".reviews-track");
+  const slides = Array.from(track.querySelectorAll(".review-slide"));
+  const prevBtn = carousel.querySelector(".carousel-btn.prev");
+  const nextBtn = carousel.querySelector(".carousel-btn.next");
+  const progressBar = carousel.querySelector(".carousel-controls .progress-bar");
+  if (!track || !slides.length) return;
 
-  const track = wrap.querySelector(".testimonial-track");
-  const prevBtn = wrap.querySelector(".testimonial-arrow.prev");
-  const nextBtn = wrap.querySelector(".testimonial-arrow.next");
-  const counter = wrap.querySelector(".testimonial-counter .cur");
-  const total = wrap.querySelector(".testimonial-counter .total");
-  if (total) total.textContent = String(slides.length);
+  let index = 0;
+  const gap = 19; // matches CSS gap
 
-  let active = 0;
-
-  const goTo = (i) => {
-    active = (i + slides.length) % slides.length;
-    slides.forEach((s, idx) => s.classList.toggle("is-active", idx === active));
-    if (counter) counter.textContent = String(active + 1);
-    if (track) {
-      const target = slides[active];
-      const offset = target.offsetLeft - track.offsetLeft;
-      track.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
-      track.style.transform = `translateX(${-offset}px)`;
-    }
+  const getVisibleCount = () => {
+    const containerWidth = carousel.getBoundingClientRect().width;
+    const slideWidth = slides[0].getBoundingClientRect().width + gap;
+    return Math.max(1, Math.floor(containerWidth / slideWidth));
   };
 
-  slides[0]?.classList.add("is-active");
-  goTo(0);
+  const updatePosition = () => {
+    const slideWidth = slides[0].getBoundingClientRect().width + gap;
+    const maxIndex = Math.max(slides.length - getVisibleCount(), 0);
+    index = clamp(index, 0, maxIndex);
+    track.style.transform = `translateX(${-index * slideWidth}px)`;
+    if (progressBar) {
+      const totalSlides = slides.length;
+      const visible = getVisibleCount();
+      const widthPct = (visible / totalSlides) * 100;
+      const offsetPct = (index / totalSlides) * 100;
+      progressBar.style.width = `${widthPct}%`;
+      progressBar.style.transform = `translateX(${(offsetPct / widthPct) * 100}%)`;
+    }
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index >= maxIndex;
+  };
 
-  prevBtn?.addEventListener("click", () => goTo(active - 1));
-  nextBtn?.addEventListener("click", () => goTo(active + 1));
+  prevBtn?.addEventListener("click", () => { index--; updatePosition(); });
+  nextBtn?.addEventListener("click", () => { index++; updatePosition(); });
 
-  // Recompute slide offset on resize so sizing changes don't desync.
-  window.addEventListener("resize", debounce(() => goTo(active), 200));
+  window.addEventListener("resize", debounce(updatePosition, 200));
+  updatePosition();
 }
 
 /* ── Gallery tabs ─────────────────────────────────────────── */
@@ -534,7 +540,7 @@ function initCustomCursor() {
   };
   tick();
 
-  const hoverables = "a, button, .service-card, .gallery-item, .portfolio-slide, .carousel-btn, .testimonial-dot, .tab-link, .image-marquee-item";
+  const hoverables = "a, button, .service-card, .gallery-item, .portfolio-slide, .review-slide, .carousel-btn, .tab-link";
   document.addEventListener("mouseover", (e) => {
     if (e.target.closest(hoverables)) dot.classList.add("is-hovering");
   });
@@ -663,7 +669,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initRevealAnimations();
   initCounters();
   initPortfolioCarousel();
-  initTestimonialCarousel();
+  initReviewsCarousel();
   initGalleryTabs();
   prioritizeGalleryPreviews();
   initLightbox();

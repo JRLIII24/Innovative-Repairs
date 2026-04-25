@@ -1107,117 +1107,106 @@ footer {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   Testimonials Carousel
+   Reviews Carousel — same engine as Recent Projects
    ════════════════════════════════════════════════════════════════ */
 
-.testimonial-carousel {
+.reviews-carousel {
   position: relative;
-}
-
-.testimonial-track {
-  display: flex;
-  gap: 1.5rem;
+  margin: 0 calc(-1 * var(--section-padding));
+  padding: 0 var(--section-padding);
   overflow: hidden;
-  scroll-snap-type: x mandatory;
 }
 
-.testimonial-slide {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 1rem 0;
-  opacity: 0.3;
-  transition: opacity 0.6s var(--ease);
-}
-
-.testimonial-slide.is-active { opacity: 1; }
-
-.testimonial-quote {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
-  font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  max-width: 30ch;
-}
-
-.testimonial-quote::before {
-  content: """;
-  display: block;
-  font-size: 4rem;
-  line-height: 0.5;
-  color: var(--copper);
-  margin-bottom: 0.5rem;
-}
-
-.testimonial-author {
+.reviews-track {
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-
-.testimonial-author .author-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--copper);
-  color: var(--text-on-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.testimonial-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1.2rem;
-  margin-top: 2rem;
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
-.testimonial-arrow {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid var(--border-strong);
-  background: transparent;
+.review-slide {
+  flex: 0 0 clamp(280px, 38vw, 460px);
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 320px;
+  transition: transform var(--duration) var(--ease-out-expo), border-color var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+
+.review-slide:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+}
+
+.review-stars {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  color: var(--copper-bright);
+}
+
+.review-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
   color: var(--text);
-  cursor: pointer;
-  display: inline-flex;
+  font-weight: 400;
+  font-variation-settings: "opsz" 14, "SOFT" 0;
+  flex: 1;
+  font-style: normal;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.review-author .author-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--copper);
+  color: var(--text-on-accent);
+  display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-shrink: 0;
 }
 
-.testimonial-arrow:hover {
-  background: var(--copper);
-  color: var(--text-on-accent);
-  border-color: var(--copper);
+.review-author-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
 }
 
-.testimonial-counter {
+.review-author-info .author-name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+
+.review-author-info .author-source {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  min-width: 4ch;
-  text-align: center;
+  color: var(--text-tertiary);
+  margin-top: 2px;
 }
 
 /* ════════════════════════════════════════════════════════════════
