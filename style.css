@@ -1183,21 +1183,42 @@ footer {
 .testimonial-controls {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1.2rem;
   margin-top: 2rem;
 }
 
-.testimonial-dot {
-  width: 28px;
-  height: 4px;
-  border-radius: 2px;
-  border: none;
-  background: var(--border-strong);
+.testimonial-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
   cursor: pointer;
-  transition: background 0.4s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease);
 }
 
-.testimonial-dot.is-active { background: var(--copper); }
+.testimonial-arrow:hover {
+  background: var(--copper);
+  color: var(--text-on-accent);
+  border-color: var(--copper);
+}
+
+.testimonial-counter {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  min-width: 4ch;
+  text-align: center;
+}
 
 /* ════════════════════════════════════════════════════════════════
    Marquee gallery (continuous scroll of images)

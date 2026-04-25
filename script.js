@@ -325,7 +325,7 @@ function initPortfolioCarousel() {
   updatePosition();
 }
 
-/* ── Testimonial carousel ─────────────────────────────────── */
+/* ── Testimonial carousel — manual prev/next arrows ──────────── */
 
 function initTestimonialCarousel() {
   const wrap = document.querySelector(".testimonial-carousel");
@@ -334,78 +334,35 @@ function initTestimonialCarousel() {
   const slides = Array.from(wrap.querySelectorAll(".testimonial-slide"));
   if (!slides.length) return;
 
-  const dotContainer = wrap.querySelector(".testimonial-controls");
+  const track = wrap.querySelector(".testimonial-track");
+  const prevBtn = wrap.querySelector(".testimonial-arrow.prev");
+  const nextBtn = wrap.querySelector(".testimonial-arrow.next");
+  const counter = wrap.querySelector(".testimonial-counter .cur");
+  const total = wrap.querySelector(".testimonial-counter .total");
+  if (total) total.textContent = String(slides.length);
+
   let active = 0;
 
-  // Build dots
-  if (dotContainer && !dotContainer.children.length) {
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.className = "testimonial-dot" + (i === 0 ? " is-active" : "");
-      dot.setAttribute("aria-label", `Show testimonial ${i + 1}`);
-      dot.addEventListener("click", () => goTo(i, true));
-      dotContainer.appendChild(dot);
-    });
-  }
-
-  const dots = dotContainer ? Array.from(dotContainer.children) : [];
-
-  const track = wrap.querySelector(".testimonial-track");
-
-  const goTo = (i, manual = false) => {
+  const goTo = (i) => {
     active = (i + slides.length) % slides.length;
     slides.forEach((s, idx) => s.classList.toggle("is-active", idx === active));
-    dots.forEach((d, idx) => d.classList.toggle("is-active", idx === active));
-    // The track has overflow:hidden so scrollTo is a no-op — translate it
-    // instead. Local move only, never affects document scroll.
+    if (counter) counter.textContent = String(active + 1);
     if (track) {
       const target = slides[active];
       const offset = target.offsetLeft - track.offsetLeft;
       track.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
       track.style.transform = `translateX(${-offset}px)`;
     }
-    if (manual) {
-      clearInterval(timer);
-      timer = null;
-      startTimerIfVisible();
-    }
   };
 
   slides[0]?.classList.add("is-active");
+  goTo(0);
 
-  let timer = null;
-  let inView = false;
-  let userEngaged = false;
+  prevBtn?.addEventListener("click", () => goTo(active - 1));
+  nextBtn?.addEventListener("click", () => goTo(active + 1));
 
-  const startTimerIfVisible = () => {
-    if (timer || userEngaged || !inView) return;
-    timer = setInterval(() => goTo(active + 1), 6500);
-  };
-  const stopTimer = () => {
-    if (timer) { clearInterval(timer); timer = null; }
-  };
-  const stopForever = () => {
-    userEngaged = true;
-    stopTimer();
-  };
-
-  // First click anywhere in the testimonial section → stop auto-rotate.
-  wrap.addEventListener("pointerdown", stopForever);
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        inView = entry.isIntersecting;
-        if (inView) startTimerIfVisible();
-        else stopTimer();
-      },
-      { threshold: 0.25 }
-    );
-    observer.observe(wrap);
-  } else {
-    inView = true;
-    startTimerIfVisible();
-  }
+  // Recompute slide offset on resize so sizing changes don't desync.
+  window.addEventListener("resize", debounce(() => goTo(active), 200));
 }
 
 /* ── Gallery tabs ─────────────────────────────────────────── */

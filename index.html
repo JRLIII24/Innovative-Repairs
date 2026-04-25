@@ -262,31 +262,6 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-         IMAGE MARQUEE
-         ═══════════════════════════════════════════════════════════ -->
-    <section class="image-marquee" aria-label="Project image marquee">
-      <div class="image-marquee-track">
-        <div class="image-marquee-item"><img src="assets/Edits-12.jpg" alt="Modern white living room" loading="lazy"  width="2880" height="1921"/></div>
-        <div class="image-marquee-item"><img src="assets/Glass-Bathroom.jpeg" alt="Modern glass bathroom" loading="lazy"  width="360" height="480"/></div>
-        <div class="image-marquee-item"><img src="assets/Kitchen2.jpeg" alt="Spacious kitchen" loading="lazy"  width="1115" height="1695"/></div>
-        <div class="image-marquee-item"><img src="assets/Grey-Bathroom.jpeg" alt="Stylish grey bathroom" loading="lazy"  width="360" height="480"/></div>
-        <div class="image-marquee-item"><img src="assets/IMG_5533.jpeg" alt="Two-tone paver patio" loading="lazy"  width="3024" height="4032"/></div>
-        <div class="image-marquee-item"><img src="assets/IMG_5410.jpeg" alt="Paver walkway with artificial turf" loading="lazy"  width="1963" height="2617"/></div>
-        <div class="image-marquee-item"><img src="assets/FullSizeRender.jpeg" alt="Herringbone paver patio" loading="lazy"  width="3024" height="4032"/></div>
-        <div class="image-marquee-item"><img src="assets/Truck.jpeg" alt="Innovative Repairs truck" loading="lazy"  width="4032" height="3024"/></div>
-        <!-- Duplicate -->
-        <div class="image-marquee-item"><img src="assets/Edits-12.jpg" alt="" loading="lazy"  width="2880" height="1921"/></div>
-        <div class="image-marquee-item"><img src="assets/Glass-Bathroom.jpeg" alt="" loading="lazy"  width="360" height="480"/></div>
-        <div class="image-marquee-item"><img src="assets/Kitchen2.jpeg" alt="" loading="lazy"  width="1115" height="1695"/></div>
-        <div class="image-marquee-item"><img src="assets/Grey-Bathroom.jpeg" alt="" loading="lazy"  width="360" height="480"/></div>
-        <div class="image-marquee-item"><img src="assets/IMG_5533.jpeg" alt="" loading="lazy"  width="3024" height="4032"/></div>
-        <div class="image-marquee-item"><img src="assets/IMG_5410.jpeg" alt="" loading="lazy"  width="1963" height="2617"/></div>
-        <div class="image-marquee-item"><img src="assets/FullSizeRender.jpeg" alt="" loading="lazy"  width="3024" height="4032"/></div>
-        <div class="image-marquee-item"><img src="assets/Truck.jpeg" alt="" loading="lazy"  width="4032" height="3024"/></div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
          PROCESS
          ═══════════════════════════════════════════════════════════ -->
     <section class="section">
@@ -353,7 +328,11 @@
             </div>
           </article>
         </div>
-        <div class="testimonial-controls" role="tablist"></div>
+        <div class="testimonial-controls">
+          <button type="button" class="testimonial-arrow prev" aria-label="Previous review">←</button>
+          <span class="testimonial-counter" aria-live="polite"><span class="cur">1</span> / <span class="total">3</span></span>
+          <button type="button" class="testimonial-arrow next" aria-label="Next review">→</button>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
