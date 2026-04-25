@@ -1119,23 +1119,27 @@ footer {
 
 .reviews-track {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 1.2rem;
   transition: transform 0.6s var(--ease-out-expo);
 }
 
 .review-slide {
-  flex: 0 0 clamp(280px, 38vw, 460px);
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  width: clamp(280px, 38vw, 460px);
   position: relative;
   border-radius: var(--radius-lg);
-  overflow: hidden;
   border: 1px solid var(--border);
   background: var(--bg-card);
   padding: 2rem 1.75rem;
+  min-height: 320px;
+  transition: transform var(--duration) var(--ease-out-expo), border-color var(--duration) var(--ease), background var(--duration) var(--ease);
+  /* Inner layout: column flex so author can pin to the bottom. */
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  min-height: 320px;
-  transition: transform var(--duration) var(--ease-out-expo), border-color var(--duration) var(--ease), background var(--duration) var(--ease);
 }
 
 .review-slide:hover {
