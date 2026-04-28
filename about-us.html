@@ -8,12 +8,20 @@
   <title>The Studio — Innovative Repairs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="style" href="style.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="preload" as="image" href="assets/Truck.webp" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="style.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
 </head>
 
 <body class="page-about">
@@ -21,7 +29,7 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <picture><source srcset="assets/Innovative%20Repairs.webp" type="image/webp"><img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/></picture>
           <span class="logo-mark">
             <span class="word-1">Innovative</span>
             <span class="word-2">Repairs · Est. SoCal</span>
@@ -47,7 +55,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-video-wrapper">
-        <img src="assets/Truck.jpeg" alt="Innovative Repairs on site" loading="eager"  width="4032" height="3024"/>
+        <picture><source srcset="assets/Truck.webp" type="image/webp"><img src="assets/Truck.jpeg" alt="Innovative Repairs on site" loading="eager"  width="4032" height="3024"/></picture>
       </div>
       <div class="hero-content" data-reveal="up">
         <span class="eyebrow">The Studio</span>
@@ -82,7 +90,7 @@
           <p>Every project reflects the same operating principles: precision in the details, honest timelines, transparent pricing, and durable results. Our growth comes through repeat business and referrals — and we treat that trust as the foundation of the company.</p>
         </div>
         <div class="col-image" data-reveal="left">
-          <img src="assets/Edits-15.jpg" alt="A finished interior project" loading="lazy"  width="2880" height="1921"/>
+          <picture><source srcset="assets/Edits-15.webp" type="image/webp"><img src="assets/Edits-15.jpg" alt="A finished interior project" loading="lazy"  width="2880" height="1921"/></picture>
         </div>
       </div>
     </section>

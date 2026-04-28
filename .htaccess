@@ -1,0 +1,194 @@
+# ============================================================================
+# Innovative Repairs — Apache configuration for GoDaddy shared hosting
+# Targets Lighthouse audits: "Use efficient cache lifetimes" and
+# "Avoid enormous network payloads" by enabling compression + long cache TTLs.
+# All module-specific blocks are guarded by <IfModule> so the file degrades
+# gracefully if a module is unavailable on the host.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Default charset — ensures text responses are tagged UTF-8
+# ----------------------------------------------------------------------------
+AddDefaultCharset utf-8
+
+# ----------------------------------------------------------------------------
+# Disable directory browsing — prevents Apache from listing folder contents
+# if an index file is missing (e.g. /assets/)
+# ----------------------------------------------------------------------------
+Options -Indexes
+
+# ----------------------------------------------------------------------------
+# GZIP compression (mod_deflate) — supported on GoDaddy shared hosting.
+# Compresses text-based responses to cut transfer size dramatically.
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Brotli compression (mod_brotli) — better ratio than gzip when available.
+# Wrapped in <IfModule> so it no-ops on hosts where Brotli isn't enabled.
+# ----------------------------------------------------------------------------
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html
+    AddOutputFilterByType BROTLI_COMPRESS text/css
+    AddOutputFilterByType BROTLI_COMPRESS text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+    AddOutputFilterByType BROTLI_COMPRESS application/xml
+    AddOutputFilterByType BROTLI_COMPRESS text/xml
+    AddOutputFilterByType BROTLI_COMPRESS font/ttf
+    AddOutputFilterByType BROTLI_COMPRESS font/otf
+    AddOutputFilterByType BROTLI_COMPRESS application/x-font-ttf
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Cache lifetimes (mod_expires) — addresses Lighthouse "efficient cache
+# lifetimes" by giving static assets long TTLs while keeping HTML short
+# so client edits propagate quickly.
+#
+# HTML:   1 hour   (drop to 10 min during active editing — see notes below)
+# CSS/JS: 1 month  (non-technical client; safer than 1 yr without hashed names)
+# Images: 1 year
+# Video:  1 year
+# Fonts:  1 year
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                              "access plus 1 week"
+
+    # HTML — short TTL so edits show up fast
+    ExpiresByType text/html                     "access plus 1 hour"
+
+    # CSS / JS — 1 month default for unhashed filenames
+    ExpiresByType text/css                      "access plus 1 month"
+    ExpiresByType text/javascript               "access plus 1 month"
+    ExpiresByType application/javascript        "access plus 1 month"
+    ExpiresByType application/json              "access plus 1 month"
+
+    # Images — 1 year
+    ExpiresByType image/jpeg                    "access plus 1 year"
+    ExpiresByType image/png                     "access plus 1 year"
+    ExpiresByType image/webp                    "access plus 1 year"
+    ExpiresByType image/gif                     "access plus 1 year"
+    ExpiresByType image/svg+xml                 "access plus 1 year"
+    ExpiresByType image/x-icon                  "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon      "access plus 1 year"
+
+    # Video — 1 year
+    ExpiresByType video/mp4                     "access plus 1 year"
+    ExpiresByType video/webm                    "access plus 1 year"
+    ExpiresByType video/quicktime               "access plus 1 year"
+
+    # Fonts — 1 year
+    ExpiresByType font/woff                     "access plus 1 year"
+    ExpiresByType font/woff2                    "access plus 1 year"
+    ExpiresByType font/ttf                      "access plus 1 year"
+    ExpiresByType font/otf                      "access plus 1 year"
+    ExpiresByType application/font-woff         "access plus 1 year"
+    ExpiresByType application/font-woff2        "access plus 1 year"
+    ExpiresByType application/x-font-ttf        "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Cache-Control headers (mod_headers) — mirror the Expires values above.
+# Some CDNs and modern browsers prefer Cache-Control over Expires.
+# ----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # HTML — 1 hour
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+
+    # CSS / JS / JSON — 1 month (2592000s)
+    <FilesMatch "\.(css|js|mjs|json)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Images — 1 year (31536000s)
+    <FilesMatch "\.(jpg|jpeg|png|webp|gif|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Video — 1 year
+    <FilesMatch "\.(mp4|webm|mov|m4v)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Fonts — 1 year
+    <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # ------------------------------------------------------------------------
+    # Security headers — safe defaults that don't break a static site.
+    # CSP intentionally omitted; it needs per-site tuning.
+    # ------------------------------------------------------------------------
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# HTTPS redirect — DISABLED BY DEFAULT.
+#
+# IMPORTANT: Do NOT uncomment until SSL is active on GoDaddy. Enabling this
+# before the cert is provisioned will redirect users to a URL that doesn't
+# work and effectively takes the site offline.
+#
+# To enable after SSL is live in GoDaddy cPanel:
+#   1. Confirm https://yourdomain.com loads with a valid padlock.
+#   2. Remove the leading "#" from each of the 4 lines below.
+#   3. Re-upload this file.
+# ----------------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ============================================================================
+# Deployment notes (for the site owner)
+# ----------------------------------------------------------------------------
+# 1. UPLOAD TO GODADDY:
+#      - Log into GoDaddy → cPanel → File Manager.
+#      - Navigate to the "public_html" folder (the site root).
+#      - Click "Settings" (top-right) and check "Show Hidden Files (dotfiles)"
+#        — required because this filename starts with a dot.
+#      - Upload this .htaccess into public_html, replacing any existing one
+#        only after confirming you have a backup of the old version.
+#
+# 2. AFTER ENABLING SSL:
+#      - In GoDaddy cPanel, install/activate the SSL certificate.
+#      - Verify https:// loads correctly with a valid padlock icon.
+#      - Edit this file and uncomment the HTTPS redirect block above
+#        (the four lines starting with "#" inside the mod_rewrite section).
+#      - Re-upload.
+#
+# 3. FASTER PROPAGATION DURING ACTIVE EDITING:
+#      - The HTML cache lifetime is 1 hour by default. If you're actively
+#        making changes and want them to appear sooner, change:
+#            ExpiresByType text/html "access plus 1 hour"
+#        to:
+#            ExpiresByType text/html "access plus 10 minutes"
+#        and update the matching Cache-Control max-age from 3600 to 600.
+#      - Switch back to 1 hour (or longer) once the site is stable.
+#
+# 4. INVALIDATING CSS/JS:
+#      - CSS and JS are cached for 1 month. If you update style.css or
+#        script.js, force a refresh by either renaming the file or appending
+#        a version query string in the HTML, e.g.
+#            <link rel="stylesheet" href="style.css?v=2">
+# ============================================================================

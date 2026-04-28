@@ -214,27 +214,32 @@ function initPortfolioCarousel() {
   let index = 0;
   const gap = 19; // matches CSS gap
 
+  // Cached layout dimensions — avoids forced reflows on every updatePosition tick.
+  let slideWidth = 0;
+  let visibleCount = 1;
+
+  const recalc = () => {
+    const containerWidth = carousel.getBoundingClientRect().width;
+    slideWidth = slides[0].getBoundingClientRect().width + gap;
+    visibleCount = Math.max(1, Math.floor(containerWidth / slideWidth));
+  };
+
+  const getVisibleCount = () => visibleCount;
+
   const updatePosition = () => {
-    const slideWidth = slides[0].getBoundingClientRect().width + gap;
-    const maxIndex = Math.max(slides.length - getVisibleCount(), 0);
+    const maxIndex = Math.max(slides.length - visibleCount, 0);
     index = clamp(index, 0, maxIndex);
     track.style.transform = `translateX(${-index * slideWidth}px)`;
     if (progressBar) {
       const total = slides.length;
-      const visible = getVisibleCount();
-      const widthPct = (visible / total) * 100;
+      const widthPct = (visibleCount / total) * 100;
       const offsetPct = (index / total) * 100;
-      progressBar.style.width = `${widthPct}%`;
-      progressBar.style.transform = `translateX(${(offsetPct / widthPct) * 100}%)`;
+      const scaleFactor = widthPct / 100;
+      const translatePct = widthPct === 0 ? 0 : (offsetPct / widthPct) * 100;
+      progressBar.style.transform = `translateX(${translatePct}%) scaleX(${scaleFactor})`;
     }
     if (prevBtn) prevBtn.disabled = index === 0;
     if (nextBtn) nextBtn.disabled = index >= maxIndex;
-  };
-
-  const getVisibleCount = () => {
-    const containerWidth = carousel.getBoundingClientRect().width;
-    const slideWidth = slides[0].getBoundingClientRect().width + gap;
-    return Math.max(1, Math.floor(containerWidth / slideWidth));
   };
 
   prevBtn?.addEventListener("click", () => { index--; updatePosition(); });
@@ -268,19 +273,18 @@ function initPortfolioCarousel() {
     isDragging = false;
     track.classList.remove("dragging");
     const dx = clientX - startX;
-    const slideWidth = slides[0].getBoundingClientRect().width + gap;
     const moveBy = Math.round(-dx / slideWidth);
     index += moveBy;
     updatePosition();
   };
 
   track.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
-  window.addEventListener("mousemove", (e) => onDragMove(e.clientX));
-  window.addEventListener("mouseup", (e) => onDragEnd(e.clientX));
+  window.addEventListener("mousemove", (e) => onDragMove(e.clientX), { passive: true });
+  window.addEventListener("mouseup", (e) => onDragEnd(e.clientX), { passive: true });
 
   track.addEventListener("touchstart", (e) => onDragStart(e.touches[0].clientX), { passive: true });
   track.addEventListener("touchmove", (e) => onDragMove(e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchend", (e) => onDragEnd(e.changedTouches[0].clientX));
+  track.addEventListener("touchend", (e) => onDragEnd(e.changedTouches[0].clientX), { passive: true });
 
   // Auto-advance until the user clicks anywhere in this section, then stop.
   let auto = null;
@@ -321,7 +325,8 @@ function initPortfolioCarousel() {
     startAuto();
   }
 
-  window.addEventListener("resize", debounce(updatePosition, 200));
+  window.addEventListener("resize", debounce(() => { recalc(); updatePosition(); }, 200));
+  recalc();
   updatePosition();
 }
 
@@ -341,24 +346,27 @@ function initReviewsCarousel() {
   let index = 0;
   const gap = 19; // matches CSS gap
 
-  const getVisibleCount = () => {
+  // Cached layout dimensions — avoids forced reflows on every updatePosition tick.
+  let slideWidth = 0;
+  let visibleCount = 1;
+
+  const recalc = () => {
     const containerWidth = carousel.getBoundingClientRect().width;
-    const slideWidth = slides[0].getBoundingClientRect().width + gap;
-    return Math.max(1, Math.floor(containerWidth / slideWidth));
+    slideWidth = slides[0].getBoundingClientRect().width + gap;
+    visibleCount = Math.max(1, Math.floor(containerWidth / slideWidth));
   };
 
   const updatePosition = () => {
-    const slideWidth = slides[0].getBoundingClientRect().width + gap;
-    const maxIndex = Math.max(slides.length - getVisibleCount(), 0);
+    const maxIndex = Math.max(slides.length - visibleCount, 0);
     index = clamp(index, 0, maxIndex);
     track.style.transform = `translateX(${-index * slideWidth}px)`;
     if (progressBar) {
       const totalSlides = slides.length;
-      const visible = getVisibleCount();
-      const widthPct = (visible / totalSlides) * 100;
+      const widthPct = (visibleCount / totalSlides) * 100;
       const offsetPct = (index / totalSlides) * 100;
-      progressBar.style.width = `${widthPct}%`;
-      progressBar.style.transform = `translateX(${(offsetPct / widthPct) * 100}%)`;
+      const scaleFactor = widthPct / 100;
+      const translatePct = widthPct === 0 ? 0 : (offsetPct / widthPct) * 100;
+      progressBar.style.transform = `translateX(${translatePct}%) scaleX(${scaleFactor})`;
     }
     if (prevBtn) prevBtn.disabled = index === 0;
     if (nextBtn) nextBtn.disabled = index >= maxIndex;
@@ -367,7 +375,8 @@ function initReviewsCarousel() {
   prevBtn?.addEventListener("click", () => { index--; updatePosition(); });
   nextBtn?.addEventListener("click", () => { index++; updatePosition(); });
 
-  window.addEventListener("resize", debounce(updatePosition, 200));
+  window.addEventListener("resize", debounce(() => { recalc(); updatePosition(); }, 200));
+  recalc();
   updatePosition();
 }
 
@@ -530,12 +539,14 @@ function initCustomCursor() {
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-  });
+  }, { passive: true });
 
   const tick = () => {
     dotX = lerp(dotX, mouseX, 0.22);
     dotY = lerp(dotY, mouseY, 0.22);
-    dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+    // Use the `translate` CSS property (not `transform`) so the CSS-driven
+    // `transform: scale()` on .is-hovering is not clobbered each frame.
+    dot.style.translate = `${dotX}px ${dotY}px`;
     requestAnimationFrame(tick);
   };
   tick();
@@ -543,10 +554,10 @@ function initCustomCursor() {
   const hoverables = "a, button, .service-card, .gallery-item, .portfolio-slide, .review-slide, .carousel-btn, .tab-link";
   document.addEventListener("mouseover", (e) => {
     if (e.target.closest(hoverables)) dot.classList.add("is-hovering");
-  });
+  }, { passive: true });
   document.addEventListener("mouseout", (e) => {
     if (e.target.closest(hoverables)) dot.classList.remove("is-hovering");
-  });
+  }, { passive: true });
 }
 
 /* ── Magnetic buttons ─────────────────────────────────────── */
@@ -595,7 +606,7 @@ function initParallax() {
       requestAnimationFrame(update);
       ticking = true;
     }
-  });
+  }, { passive: true });
 
   update();
 }
@@ -661,21 +672,36 @@ function initAutoplayVideoVisibility() {
 
 /* ── Init ─────────────────────────────────────────────────── */
 
+// Yield non-critical work to idle time so it doesn't block the main thread.
+const whenIdle = (callback, timeout = 1500) => {
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(callback, { timeout });
+  } else {
+    setTimeout(callback, 1);
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Critical render-path: layout, navigation, hero, counters, carousels, tabs.
   setCurrentYear();
   setActiveNavLink();
   initMobileMenu();
   initHeroAnimation();
-  initRevealAnimations();
   initCounters();
   initPortfolioCarousel();
   initReviewsCarousel();
   initGalleryTabs();
-  prioritizeGalleryPreviews();
-  initLightbox();
   initCustomCursor();
   initMagneticButtons();
   initParallax();
-  optimizeMediaLoading();
   initAutoplayVideoVisibility();
+
+  // Deferred to idle time — these touch many DOM nodes / set up observers
+  // and are not required for first paint or first interaction.
+  whenIdle(() => {
+    optimizeMediaLoading();
+    prioritizeGalleryPreviews();
+    initLightbox();
+    initRevealAnimations();
+  });
 });

@@ -1072,9 +1072,10 @@ footer {
   top: 0;
   left: 0;
   height: 100%;
-  width: 25%;
+  width: 100%;
   background: var(--copper);
-  transition: transform 0.4s var(--ease-out-expo), width 0.4s var(--ease-out-expo);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
 .carousel-btn {
@@ -1345,11 +1346,11 @@ footer {
   padding: 2rem 0;
   border-bottom: 1px solid var(--border);
   position: relative;
-  transition: padding-left 0.4s var(--ease);
+  transition: transform 0.4s var(--ease);
 }
 
 .process-step:hover {
-  padding-left: 1rem;
+  transform: translateX(1rem);
 }
 
 .process-step::before {
@@ -1357,14 +1358,15 @@ footer {
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translateY(-50%);
-  width: 0;
+  width: 0.6rem;
   height: 1px;
   background: var(--copper);
-  transition: width 0.4s var(--ease);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease);
 }
 
-.process-step:hover::before { width: 0.6rem; }
+.process-step:hover::before { transform: translateY(-50%) scaleX(1); }
 
 .process-step .step-num {
   font-family: var(--font-mono);
@@ -1907,18 +1909,17 @@ footer {
     left: 0;
     width: 8px;
     height: 8px;
+    margin: -4px 0 0 -4px;
     background: var(--copper);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s var(--ease), width 0.25s var(--ease), height 0.25s var(--ease), background 0.25s var(--ease);
+    transition: transform 0.18s var(--ease), background 0.25s var(--ease);
     mix-blend-mode: difference;
   }
 
   .cursor-dot.is-hovering {
-    width: 38px;
-    height: 38px;
+    transform: scale(4.75);
     background: rgba(212, 165, 116, 0.5);
   }
 }

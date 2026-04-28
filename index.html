@@ -8,13 +8,21 @@
   <title>Innovative Repairs — Construction, Renovation & Repair Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="style" href="style.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="preload" as="image" href="assets/Camera-poster.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/Innovative%20Repairs.webp" type="image/webp" />
+  <link rel="stylesheet" href="style.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Geist:wght@400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preload" as="image" href="assets/Innovative Repairs.png" fetchpriority="high" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
 </head>
 
 <body class="page-home">
@@ -22,7 +30,7 @@
     <nav class="navbar" aria-label="Main navigation">
       <div class="logo">
         <a href="index.html" aria-label="Innovative Repairs home">
-          <img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/>
+          <picture><source srcset="assets/Innovative%20Repairs.webp" type="image/webp"><img src="assets/Innovative Repairs.png" alt="Innovative Repairs" decoding="async" fetchpriority="high"  width="1024" height="1024"/></picture>
           <span class="logo-mark">
             <span class="word-1">Innovative</span>
             <span class="word-2">Repairs · Est. SoCal</span>
@@ -50,9 +58,9 @@
          ═══════════════════════════════════════════════════════════ -->
     <section class="cinema-hero" aria-label="Innovative Repairs intro">
       <div class="cinema-hero-video">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="assets/Camera.MOV" type="video/mp4" />
-          <source src="assets/Camera.MOV" type="video/quicktime" />
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/Camera-poster.jpg">
+          <source media="(min-width: 768px)" src="assets/Camera.webm" type="video/webm" />
+          <source media="(min-width: 768px)" src="assets/Camera.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="cinema-hero-grid" aria-hidden="true"></div>
@@ -203,49 +211,49 @@
       <div class="portfolio-carousel" data-reveal="fade">
         <div class="portfolio-track">
           <a href="assets/Edits-15.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Spacious Living Room and Kitchen">
-            <img src="assets/Edits-15.jpg" alt="Spacious living room and kitchen" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <picture><source srcset="assets/Edits-15.webp" type="image/webp"><img src="assets/Edits-15.jpg" alt="Spacious living room and kitchen" loading="lazy" decoding="async"  width="2880" height="1921"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Interior</span>
               <span class="title">Open‑Plan Living &amp; Kitchen</span>
             </div>
           </a>
           <a href="assets/Edits-23.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Modern Wood Accent Bathroom">
-            <img src="assets/Edits-23.jpg" alt="Modern wood accent bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <picture><source srcset="assets/Edits-23.webp" type="image/webp"><img src="assets/Edits-23.jpg" alt="Modern wood accent bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Bathroom</span>
               <span class="title">Wood &amp; Stone Bathroom</span>
             </div>
           </a>
           <a href="assets/Edits-34.jpg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Bright White Bathroom">
-            <img src="assets/Edits-34.jpg" alt="Bright white bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/>
+            <picture><source srcset="assets/Edits-34.webp" type="image/webp"><img src="assets/Edits-34.jpg" alt="Bright white bathroom" loading="lazy" decoding="async"  width="2880" height="1921"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Bathroom</span>
               <span class="title">Bright White Bath Suite</span>
             </div>
           </a>
           <a href="assets/Kitchen.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Contemporary Kitchen Remodel">
-            <img src="assets/Kitchen.jpeg" alt="Contemporary kitchen remodel" loading="lazy" decoding="async"  width="716" height="1098"/>
+            <picture><source srcset="assets/Kitchen.webp" type="image/webp"><img src="assets/Kitchen.jpeg" alt="Contemporary kitchen remodel" loading="lazy" decoding="async"  width="716" height="1098"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Kitchen</span>
               <span class="title">Contemporary Kitchen</span>
             </div>
           </a>
           <a href="assets/Marble-Bathroom.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Luxurious Marble Bathroom">
-            <img src="assets/Marble-Bathroom.jpeg" alt="Luxurious marble bathroom" loading="lazy" decoding="async"  width="673" height="1168"/>
+            <picture><source srcset="assets/Marble-Bathroom.webp" type="image/webp"><img src="assets/Marble-Bathroom.jpeg" alt="Luxurious marble bathroom" loading="lazy" decoding="async"  width="673" height="1168"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Bathroom</span>
               <span class="title">Marble Bath Retreat</span>
             </div>
           </a>
           <a href="assets/Fireplace.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Fireplace Renovation">
-            <img src="assets/Fireplace.jpeg" alt="Fireplace renovation" loading="lazy" decoding="async"  width="360" height="480"/>
+            <picture><source srcset="assets/Fireplace.webp" type="image/webp"><img src="assets/Fireplace.jpeg" alt="Fireplace renovation" loading="lazy" decoding="async"  width="360" height="480"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Feature</span>
               <span class="title">Sculpted Fireplace</span>
             </div>
           </a>
           <a href="assets/IMG_1913.jpeg" class="portfolio-slide" data-lightbox="home-portfolio" data-title="Large Paver Patio at Sunset">
-            <img src="assets/IMG_1913.jpeg" alt="Large paver patio at sunset" loading="lazy" decoding="async"  width="3024" height="4032"/>
+            <picture><source srcset="assets/IMG_1913.webp" type="image/webp"><img src="assets/IMG_1913.jpeg" alt="Large paver patio at sunset" loading="lazy" decoding="async"  width="3024" height="4032"/></picture>
             <div class="portfolio-slide-meta">
               <span class="tag">Exterior</span>
               <span class="title">Paver Patio at Sunset</span>
